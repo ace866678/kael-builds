@@ -642,7 +642,6 @@ function App() {
                 </button>
               ))}
             </div>
-            <div className="design-lab-note"><Sparkles size={15} /><span>All ten panels are illustrative interface studies created for this portfolio. They are not screenshots, client work, or separate deployed products.</span></div>
           </div>
         </section>
 
