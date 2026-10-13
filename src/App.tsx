@@ -32,6 +32,8 @@ type Project = {
   status: string;
   tags: string[];
   repo?: string;
+  liveUrl?: string;
+  screenshotUrl?: string;
   visual: "research" | "alvora" | "iot" | "server";
 };
 
@@ -48,6 +50,8 @@ const projects: Project[] = [
     category: "Web apps",
     status: "In progress",
     tags: ["React", "Vite", "Firebase"],
+    liveUrl: "https://research-room-sable.vercel.app/",
+    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://research-room-sable.vercel.app/",
     visual: "research",
   },
   {
@@ -61,6 +65,8 @@ const projects: Project[] = [
     status: "Early prototype",
     tags: ["React", "TypeScript", "Vite"],
     repo: "https://github.com/ace866678/alvora",
+    liveUrl: "https://alvora-nine.vercel.app/",
+    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://alvora-nine.vercel.app/",
     visual: "alvora",
   },
   {
@@ -74,6 +80,20 @@ const projects: Project[] = [
     status: "Research project",
     tags: ["IoT", "Detection logic", "Emergency alerts"],
     visual: "iot",
+  },
+  {
+    id: "studyvault",
+    number: "03",
+    name: "StudyVault",
+    eyebrow: "STUDENT TOOLS · WEB APP",
+    description:
+      "A student-focused study workspace designed to make learning resources and study sessions easier to organize in one place.",
+    category: "Web apps",
+    status: "Live website",
+    tags: ["Web app", "Study resources", "Student tools"],
+    liveUrl: "https://studyvault-lilac.vercel.app/",
+    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://studyvault-lilac.vercel.app/",
+    visual: "research",
   },
   {
     id: "mcl-server",
@@ -279,8 +299,13 @@ function App() {
                 const isFeatured = project.id === "research-room" && filter === "All work";
                 return (
                   <article className={isFeatured ? "project-card project-card-featured" : "project-card"} key={project.id}>
-                    <div className="project-art-wrap">
-                      <ProjectArtwork kind={project.visual} />
+                    <div className={project.screenshotUrl ? "project-art-wrap project-art-wrap-live" : "project-art-wrap"}>
+                      {project.screenshotUrl ? (
+                        <a className="live-screenshot-link" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open live ${project.name} website`}>
+                          <img className="live-screenshot" src={project.screenshotUrl} alt={`Screenshot preview of the live ${project.name} website`} loading="lazy" />
+                          <span className="screenshot-overlay">LIVE WEBSITE <ArrowUpRight size={14} /></span>
+                        </a>
+                      ) : <ProjectArtwork kind={project.visual} />}
                       <span className="project-number">{project.number}</span>
                     </div>
                     <div className="project-copy">
@@ -291,11 +316,11 @@ function App() {
                         {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                       </div>
                       <div className="project-card-footer">
-                        {project.repo ? (
-                          <a className="text-link" href={project.repo} target="_blank" rel="noreferrer">View source <ArrowUpRight size={16} /></a>
-                        ) : (
-                          <span className="text-link text-link-pending">Case study in progress <span>↗</span></span>
-                        )}
+                        <div className="project-links">
+                          {project.liveUrl && <a className="text-link" href={project.liveUrl} target="_blank" rel="noreferrer">Live website <ArrowUpRight size={16} /></a>}
+                          {project.repo && <a className="text-link text-link-source" href={project.repo} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={16} /></a>}
+                          {!project.liveUrl && !project.repo && <span className="text-link text-link-pending">Case study in progress <span>↗</span></span>}
+                        </div>
                         <span className="category-label">{project.category}</span>
                       </div>
                     </div>
@@ -303,7 +328,7 @@ function App() {
                 );
               })}
             </div>
-            <div className="work-note"><Sparkles size={15} /><span>Some project visuals are illustrative concepts, not screenshots of a live product. Source links are provided where a public repository is confirmed.</span></div>
+            <div className="work-note"><Sparkles size={15} /><span>Live project cards use website screenshot previews. Conceptual artwork is labeled where a live website is not available; source links are included where public repositories are confirmed.</span></div>
             <div className="all-projects-cta"><span>There’s always something new on the workbench.</span><a href="https://github.com/ace866678?tab=repositories" target="_blank" rel="noreferrer">Explore GitHub repositories <ArrowUpRight size={16} /></a></div>
           </div>
         </section>
