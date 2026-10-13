@@ -21,6 +21,7 @@ import {
   Wrench,
   X,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
@@ -865,6 +866,7 @@ function App() {
           <span className="footer-year">© {new Date().getFullYear()} KAEL BUILDS</span>
         </div>
       </footer>
+      <Analytics />
     </>
   );
 }
