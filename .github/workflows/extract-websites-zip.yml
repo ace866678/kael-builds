@@ -1,0 +1,113 @@
+name: Extract uploaded portfolio images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/extract-websites-zip.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extract-websites-zip
+  cancel-in-progress: false
+
+jobs:
+  extract-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: List and safely extract image files
+        id: extract
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from zipfile import ZipFile, BadZipFile
+          import os
+
+          archive = Path("websites.zip")
+          if not archive.is_file():
+              raise SystemExit("Expected websites.zip in the repository root.")
+
+          output_root = Path("public/images/uploaded")
+          allowed = {".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif", ".svg"}
+          extracted = []
+
+          try:
+              with ZipFile(archive) as zf:
+                  damaged = zf.testzip()
+                  if damaged:
+                      raise SystemExit(f"Archive integrity check failed at: {damaged}")
+
+                  print("=== IMAGE ARCHIVE: ORIGINAL FILENAMES ===")
+                  for info in zf.infolist():
+                      if info.is_dir():
+                          continue
+
+                      name = PurePosixPath(info.filename)
+                      suffix = name.suffix.lower()
+                      if suffix not in allowed:
+                          print(f"SKIP non-image: {info.filename}")
+                          continue
+
+                      if name.is_absolute() or ".." in name.parts or not name.name:
+                          raise SystemExit(f"Unsafe archive path refused: {info.filename}")
+
+                      # Preserve each image's original filename and any subfolder structure.
+                      target = output_root.joinpath(*name.parts)
+                      if target.exists():
+                          raise SystemExit(f"Refusing to overwrite existing file: {target}")
+
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      target.write_bytes(zf.read(info))
+                      extracted.append((info.filename, str(target), info.file_size))
+                      print(f"{info.filename} -> {target} ({info.file_size} bytes)")
+
+          except BadZipFile:
+              raise SystemExit("websites.zip is not a valid ZIP archive.")
+
+          if not extracted:
+              raise SystemExit("No supported images were extracted; keeping websites.zip.")
+
+          print(f"EXTRACTED_IMAGE_COUNT={len(extracted)}")
+          # Preserve the file-name mapping for subsequent website wiring.
+          manifest = {
+              "source": "websites.zip",
+              "count": len(extracted),
+              "images": [
+                  {"archiveName": original, "path": target.replace("public", "", 1), "bytes": size}
+                  for original, target, size in extracted
+              ],
+          }
+          import json
+          (output_root / "manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          # The ZIP is deleted only after every supported image and manifest were written.
+          archive.unlink()
+          print("DELETED websites.zip after successful extraction.")
+          PY
+
+      - name: Commit extracted images and remove the archive
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A public/images/uploaded websites.zip
+          if git diff --cached --quiet; then
+            echo "No extraction changes to commit."
+            exit 0
+          fi
+          git commit -m "Extract portfolio images and remove ZIP archive"
+          git push origin HEAD:main
