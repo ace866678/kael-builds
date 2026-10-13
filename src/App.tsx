@@ -420,8 +420,8 @@ function App() {
       <header className="site-header">
         <div className="header-inner page-shell">
           <a className="wordmark" href="#home" aria-label="Kael Builds home" onClick={closeMenu}>
-            <span className="wordmark-icon">K<span>.</span></span>
-            <span>kael builds<span className="wordmark-period">/</span></span>
+            <span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span>
+            <span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span>
           </a>
 
           <button
@@ -666,7 +666,7 @@ function App() {
 
       <footer className="site-footer">
         <div className="page-shell footer-inner">
-          <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-icon">K<span>.</span></span><span>kael builds<span className="wordmark-period">/</span></span></a>
+          <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span><span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span></a>
           <span className="footer-note">Built with curiosity, care, and React.</span>
           <div className="footer-links"><a href="https://github.com/ace866678" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} /></a><a href="#home">Back to top ↑</a></div>
           <span className="footer-year">© {new Date().getFullYear()} KAEL BUILDS</span>
