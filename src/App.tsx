@@ -420,6 +420,7 @@ function App() {
       ".scroll-cue",
       ".section-heading",
       ".project-card",
+      ".service-card",
       ".work-note",
       ".all-projects-cta",
       ".design-showcase",
@@ -492,9 +493,10 @@ function App() {
 
           <nav id="primary-navigation" className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
             <a href="#work" onClick={closeMenu}>Selected work <span>01</span></a>
-            <a href="#design-lab" onClick={closeMenu}>Design lab <span>02</span></a>
-            <a href="#approach" onClick={closeMenu}>Approach <span>03</span></a>
-            <a href="#about" onClick={closeMenu}>About <span>04</span></a>
+            <a href="#services" onClick={closeMenu}>Services <span>02</span></a>
+            <a href="#design-lab" onClick={closeMenu}>Design lab <span>03</span></a>
+            <a href="#approach" onClick={closeMenu}>Approach <span>04</span></a>
+            <a href="#about" onClick={closeMenu}>About <span>05</span></a>
             <a className="nav-contact" href="#contact" onClick={closeMenu}>Let's connect <ArrowUpRight size={15} /></a>
           </nav>
         </div>
@@ -508,7 +510,7 @@ function App() {
             <p className="hero-description">From web applications and research workflows to connected-system prototypes, I turn ideas into practical experiences—and document what I learn along the way.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <ArrowDownRight size={17} /></a>
-              <a className="button button-secondary" href="https://github.com/ace866678" target="_blank" rel="noreferrer">GitHub profile <ArrowUpRight size={16} /></a>
+              <a className="button button-secondary" href="#services">Hire me <ArrowUpRight size={16} /></a>
             </div>
             <div className="hero-footnote"><span className="footnote-dot" /> INDEPENDENT PROJECTS <span className="footnote-slash">/</span> PRACTICAL EXPERIMENTS <span className="footnote-slash">/</span> CONTINUOUS LEARNING</div>
           </div>
@@ -593,6 +595,80 @@ function App() {
           </div>
         </section>
 
+
+
+
+        <section className="services-section section-pad" id="services">
+          <div className="page-shell">
+            <div className="section-heading services-heading">
+              <div>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> SERVICES / AVAILABLE FOR PROJECTS</div>
+                <h2>Have an idea?<br /><span>Let's build it.</span></h2>
+              </div>
+              <p className="section-intro">Practical websites, product interfaces, and custom tools for people who want to get something useful into the world.</p>
+            </div>
+
+            <div className="service-grid">
+              <article className="service-card">
+                <div className="service-card-top"><span>01 / WEB DESIGN + BUILD</span><span className="service-icon"><Code2 size={19} /></span></div>
+                <h3>Landing page</h3>
+                <p className="service-description">A focused page for a personal brand, product launch, event, or small business.</p>
+                <div className="service-price"><span>STARTING AT</span><strong>₱5,000+</strong></div>
+                <ul className="service-includes">
+                  <li><Check size={14} /> One responsive page</li>
+                  <li><Check size={14} /> Clear calls to action</li>
+                  <li><Check size={14} /> Basic SEO and launch setup</li>
+                </ul>
+                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+              </article>
+
+              <article className="service-card">
+                <div className="service-card-top"><span>02 / BUSINESS WEBSITE</span><span className="service-icon"><Layers3 size={19} /></span></div>
+                <h3>Business website</h3>
+                <p className="service-description">A polished multi-page website that explains what you do and helps customers take the next step.</p>
+                <div className="service-price"><span>STARTING AT</span><strong>₱12,000+</strong></div>
+                <ul className="service-includes">
+                  <li><Check size={14} /> Up to five core pages</li>
+                  <li><Check size={14} /> Mobile-friendly layouts</li>
+                  <li><Check size={14} /> Contact and inquiry actions</li>
+                </ul>
+                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+              </article>
+
+              <article className="service-card service-card-featured">
+                <div className="service-card-top"><span>03 / CUSTOM DEVELOPMENT</span><span className="service-icon"><Workflow size={19} /></span></div>
+                <h3>Web app or dashboard</h3>
+                <p className="service-description">Purpose-built digital tools for workflows, records, dashboards, accounts, or team collaboration.</p>
+                <div className="service-price"><span>STARTING AT</span><strong>₱20,000+</strong></div>
+                <ul className="service-includes">
+                  <li><Check size={14} /> Features scoped to your workflow</li>
+                  <li><Check size={14} /> API, database, or sign-in integration quoted by scope</li>
+                  <li><Check size={14} /> Deployment and handover</li>
+                </ul>
+                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+              </article>
+
+              <article className="service-card">
+                <div className="service-card-top"><span>04 / UI + UX</span><span className="service-icon"><Palette size={19} /></span></div>
+                <h3>Interface design</h3>
+                <p className="service-description">Turn an early idea into a clear user flow and a prototype you can review before development.</p>
+                <div className="service-price"><span>STARTING AT</span><strong>₱3,500+</strong></div>
+                <ul className="service-includes">
+                  <li><Check size={14} /> User flow and screen structure</li>
+                  <li><Check size={14} /> Up to five key screens</li>
+                  <li><Check size={14} /> Clickable prototype handoff</li>
+                </ul>
+                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+              </article>
+            </div>
+
+            <div className="service-support-row">
+              <div><span className="service-support-label">ONGOING SUPPORT</span><strong>Site updates & maintenance from ₱1,500/month</strong><p>Small improvements and routine upkeep can be quoted as a monthly arrangement.</p></div>
+              <a className="text-link" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Ask about maintenance <ArrowUpRight size={16} /></a>
+            </div>
+            <p className="service-pricing-note">Prices are starting estimates in PHP, not fixed quotes. Final scope is agreed before work begins. Domain registration, paid hosting, premium tools, payment-provider fees, and third-party subscriptions are separate unless stated in the quote.</p>
+          </div>
+        </section>
 
         <section className="design-lab-section section-pad" id="design-lab">
           <div className="page-shell">
@@ -702,17 +778,18 @@ function App() {
         <section className="contact-section" id="contact">
           <div className="page-shell contact-inner">
             <div className="contact-left">
-              <div className="eyebrow"><span className="eyebrow-mark" /> HAVE SOMETHING IN MIND?</div>
-              <h2>Let's make an idea<br /><span>go somewhere.</span></h2>
-              <p>Have a project, a question, or a useful challenge to explore? I'd be glad to connect.</p>
-              <a className="button button-light" href="https://github.com/ace866678" target="_blank" rel="noreferrer">Connect on GitHub <ArrowUpRight size={17} /></a>
+              <div className="eyebrow"><span className="eyebrow-mark" /> LET'S WORK TOGETHER</div>
+              <h2>Ready to build<br /><span>something useful?</span></h2>
+              <p>Share what you need, your target timeline, and an approximate budget. I'll review the scope and use it to prepare a quote.</p>
+              <a className="button button-light" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml" target="_blank" rel="noreferrer">Request a quote <ArrowUpRight size={17} /></a>
             </div>
             <div className="contact-card">
-              <div className="contact-card-top"><span>OPEN CHANNEL</span><span className="contact-pulse"><i /> GITHUB</span></div>
+              <div className="contact-card-top"><span>PROJECT INQUIRY</span><span className="contact-pulse"><i /> OPEN</span></div>
               <div className="contact-monogram">K<span>.</span></div>
-              <p>Good work starts with a conversation. Let’s start one.</p>
-              <a href="https://github.com/ace866678" target="_blank" rel="noreferrer">github.com/ace866678 <ExternalLink size={15} /></a>
-              <div className="contact-card-bottom"><span>IDEAS INTO REAL PROJECTS</span><ArrowUpRight size={16} /></div>
+              <p>Tell me what you have in mind. I'll review the brief and follow up on the scope.</p>
+              <a href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml" target="_blank" rel="noreferrer">Open service inquiry form <ExternalLink size={15} /></a>
+              <div className="contact-card-bottom"><span>START WITH A CLEAR SCOPE</span><ArrowUpRight size={16} /></div>
+              <p className="contact-privacy-note">GitHub inquiries are public. Don't include passwords, payment details, private contact information, or confidential files.</p>
             </div>
           </div>
         </section>
