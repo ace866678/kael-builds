@@ -35,7 +35,8 @@ type Project = {
   status: string;
   tags: string[];
   liveUrl?: string;
-  screenshotUrl?: string;
+  previewImage?: string;
+  previewSecondaryImage?: string;
   visual: "research" | "alvora" | "iot" | "server";
 };
 
@@ -74,7 +75,8 @@ const projects: Project[] = [
     status: "In progress",
     tags: ["React", "Vite", "Firebase"],
     liveUrl: "https://research-room-sable.vercel.app/",
-    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://research-room-sable.vercel.app/",
+    previewImage: "/images/uploaded/Research%20Room.png",
+    previewSecondaryImage: "/images/uploaded/Researcg%20Room%20Login%20Page.png",
     visual: "research",
   },
   {
@@ -88,24 +90,25 @@ const projects: Project[] = [
     status: "Early prototype",
     tags: ["React", "TypeScript", "Vite"],
     liveUrl: "https://alvora-nine.vercel.app/",
-    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://alvora-nine.vercel.app/",
+    previewImage: "/images/uploaded/Alvora.png",
     visual: "alvora",
   },
   {
-    id: "crash-detection",
+    id: "puv-guard",
     number: "03",
-    name: "IoT Crash Detection",
-    eyebrow: "RESEARCH · CONNECTED SYSTEMS",
+    name: "PUV Guard",
+    eyebrow: "TRANSPORT SAFETY · CONNECTED SYSTEMS",
     description:
-      "A research project exploring an IoT-based crash detection and emergency alert system for motorcycle and tricycle drivers in Kalibo.",
+      "A transport-safety project exploring an IoT-based crash detection and emergency alert system for public utility vehicle drivers.",
     category: "Research",
     status: "Research project",
-    tags: ["IoT", "Detection logic", "Emergency alerts"],
+    tags: ["IoT", "Crash detection", "Emergency alerts"],
+    previewImage: "/images/uploaded/PUV%20Guard.png",
     visual: "iot",
   },
   {
     id: "studyvault",
-    number: "03",
+    number: "04",
     name: "StudyVault",
     eyebrow: "STUDENT TOOLS · WEB APP",
     description:
@@ -114,12 +117,12 @@ const projects: Project[] = [
     status: "Live website",
     tags: ["Web app", "Study resources", "Student tools"],
     liveUrl: "https://studyvault-lilac.vercel.app/",
-    screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://studyvault-lilac.vercel.app/",
+    previewImage: "/images/uploaded/Study%20Vault.png",
     visual: "research",
   },
   {
     id: "mcl-server",
-    number: "04",
+    number: "05",
     name: "MCL Server",
     eyebrow: "INFRASTRUCTURE · OPEN SOURCE",
     description:
@@ -127,6 +130,7 @@ const projects: Project[] = [
     category: "Systems",
     status: "Tooling project",
     tags: ["Python", "Shell", "Server tooling"],
+    previewImage: "/images/uploaded/MCL%20Server.png",
     visual: "server",
   },
 ];
@@ -225,21 +229,40 @@ function ProjectArtwork({ kind }: { kind: Project["visual"] }) {
 
 function ProjectVisual({ project }: { project: Project }) {
   const [imageFailed, setImageFailed] = useState(false);
-  const hasUsableScreenshot = Boolean(project.screenshotUrl) && !imageFailed;
+  const hasLocalPreview = Boolean(project.previewImage) && !imageFailed;
+
+  const imagePreview = hasLocalPreview ? (
+    <div className="project-preview-frame">
+      <img
+        className="project-preview-primary"
+        src={project.previewImage}
+        alt={`${project.name} project screenshot`}
+        loading="lazy"
+        onError={() => setImageFailed(true)}
+      />
+      {project.previewSecondaryImage && (
+        <img
+          className="project-preview-secondary"
+          src={project.previewSecondaryImage}
+          alt={`${project.name} login-page screenshot`}
+          loading="lazy"
+        />
+      )}
+    </div>
+  ) : null;
 
   return (
-    <div className={hasUsableScreenshot ? "project-art-wrap project-art-wrap-live" : "project-art-wrap"}>
-      {hasUsableScreenshot ? (
+    <div className={hasLocalPreview ? "project-art-wrap project-art-wrap-live" : "project-art-wrap"}>
+      {hasLocalPreview && project.liveUrl ? (
         <a className="live-screenshot-link" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open live ${project.name} website`}>
-          <img
-            className="live-screenshot"
-            src={project.screenshotUrl}
-            alt={`Screenshot preview of the live ${project.name} website`}
-            loading="lazy"
-            onError={() => setImageFailed(true)}
-          />
+          {imagePreview}
           <span className="screenshot-overlay">OPEN LIVE SITE <ArrowUpRight size={14} /></span>
         </a>
+      ) : hasLocalPreview ? (
+        <div className="project-image-static" aria-label={`${project.name} image preview`}>
+          {imagePreview}
+          <span className="screenshot-overlay">PROJECT PREVIEW</span>
+        </div>
       ) : (
         <ProjectArtwork kind={project.visual} />
       )}
@@ -625,7 +648,7 @@ function App() {
                 );
               })}
             </div>
-            <div className="work-note"><Sparkles size={15} /><span>Live previews open the project website. For work still in progress, ask me for a short overview and next steps.</span></div>
+            <div className="work-note"><Sparkles size={15} /><span>Project screenshots are matched to each build. Cards with a live website link open the deployed project; other images are previews of the project work.</span></div>
             <div className="all-projects-cta"><span>Have a project with a similar goal?</span><a href="#services">Explore services <ArrowUpRight size={16} /></a></div>
           </div>
         </section>
