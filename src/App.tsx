@@ -22,6 +22,7 @@ import {
   X,
 } from "lucide-react";
 import { Analytics } from "@vercel/analytics/react";
+import Showreel from "./Showreel";
 
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
@@ -596,6 +597,8 @@ function App() {
 
           <a className="scroll-cue" href="#work"><span>SCROLL TO EXPLORE</span><ArrowDown size={14} /></a>
         </section>
+
+        <Showreel />
 
         <section className="work-section section-pad" id="work">
           <div className="page-shell">
