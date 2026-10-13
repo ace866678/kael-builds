@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowDownRight,
@@ -408,6 +408,61 @@ function App() {
     setActiveDesignIndex((current) => (current + direction + designSamples.length) % designSamples.length);
   };
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion || !("IntersectionObserver" in window)) return;
+
+    const selector = [
+      ".hero-copy",
+      ".hero-art",
+      ".scroll-cue",
+      ".section-heading",
+      ".project-card",
+      ".work-note",
+      ".all-projects-cta",
+      ".design-showcase",
+      ".design-picker-item",
+      ".approach-heading",
+      ".process-step",
+      ".about-stamp",
+      ".about-copy",
+      ".contact-left",
+      ".contact-card",
+    ].join(", ");
+
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(selector));
+    targets.forEach((target, index) => {
+      target.classList.add("reveal-on-scroll");
+      target.style.setProperty("--reveal-delay", `${(index % 5) * 65}ms`);
+    });
+
+    document.body.classList.add("motion-ready");
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove("motion-ready");
+      targets.forEach((target) => {
+        target.classList.remove("reveal-on-scroll", "is-visible");
+        target.style.removeProperty("--reveal-delay");
+      });
+    };
+  }, []);
+
   const visibleProjects = filter === "All work"
     ? projects
     : projects.filter((project) => project.category === filter);
@@ -551,7 +606,7 @@ function App() {
 
             <div className="design-showcase">
               <div className="design-stage">
-                <DesignPreview sample={activeDesign} />
+                <DesignPreview key={activeDesign.kind} sample={activeDesign} />
               </div>
               <div className="design-details">
                 <div className="design-details-top"><span>DESIGN SAMPLE</span><span>{activeDesign.number} <i>/</i> 10</span></div>
