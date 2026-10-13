@@ -79,7 +79,7 @@ img, svg { display: block; }
 
 /* Hero orbital illustration */
 .hero-art { position: relative; min-height: 490px; overflow: hidden; border: 1px solid #e0e4dd; border-radius: 19px; background: #edf0e9; isolation: isolate; }
-.hero-art::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5; background-image: linear-gradient(rgba(16, 24, 32, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 24, 32, .05) 1px, transparent 1px); background-size: 28px 28px; mask-image: linear-gradient(to bottom, black, transparent 85%); }
+.hero-art::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .62; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23849183' stroke-width='.7' stroke-opacity='.38'%3E%3Cpath d='M0 0 C8 8 -8 24 0 32 C8 40 -8 56 0 64 C8 72 -8 88 0 96 M32 0 C40 8 24 24 32 32 C40 40 24 56 32 64 C40 72 24 88 32 96 M64 0 C72 8 56 24 64 32 C72 40 56 56 64 64 C72 72 56 88 64 96 M96 0 C104 8 88 24 96 32 C104 40 88 56 96 64 C104 72 88 88 96 96 M0 0 C8 8 24 -8 32 0 C40 8 56 -8 64 0 C72 8 88 -8 96 0 M0 32 C8 40 24 24 32 32 C40 40 56 24 64 32 C72 40 88 24 96 32 M0 64 C8 72 24 56 32 64 C40 72 56 56 64 64 C72 72 88 56 96 64 M0 96 C8 104 24 88 32 96 C40 104 56 88 64 96 C72 104 88 88 96 96'/%3E%3C/g%3E%3C/svg%3E"); background-size: 84px 84px; mask-image: linear-gradient(to bottom, black, transparent 92%); }
 .hero-art-top, .hero-art-bottom { position: absolute; z-index: 3; left: 21px; right: 21px; display: flex; justify-content: space-between; align-items: center; color: #68746f; font: 8px var(--mono); letter-spacing: 1px; }
 .hero-art-top { top: 21px; }
 .hero-art-bottom { bottom: 19px; padding-top: 15px; border-top: 1px solid #d5dbd1; }
@@ -949,4 +949,102 @@ a.text-link:hover svg { transform: translate(2px, -2px); }
 @media (prefers-reduced-motion: reduce) {
   .design-preview { animation:none; }
   .design-picker-item, .design-arrow-controls button { transition:none; }
+}
+
+
+/* Warped technical grid: a gentle distorted mesh, not an ocean-wave motif. */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23849183' stroke-width='.7' stroke-opacity='.38'%3E%3Cpath d='M0 0 C8 8 -8 24 0 32 C8 40 -8 56 0 64 C8 72 -8 88 0 96 M32 0 C40 8 24 24 32 32 C40 40 24 56 32 64 C40 72 24 88 32 96 M64 0 C72 8 56 24 64 32 C72 40 56 56 64 64 C72 72 56 88 64 96 M96 0 C104 8 88 24 96 32 C104 40 88 56 96 64 C104 72 88 88 96 96 M0 0 C8 8 24 -8 32 0 C40 8 56 -8 64 0 C72 8 88 -8 96 0 M0 32 C8 40 24 24 32 32 C40 40 56 24 64 32 C72 40 88 24 96 32 M0 64 C8 72 24 56 32 64 C40 72 56 56 64 64 C72 72 88 56 96 64 M0 96 C8 104 24 88 32 96 C40 104 56 88 64 96 C72 104 88 88 96 96'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+  background-attachment: fixed;
+}
+.hero {
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -10px -4vw -25px;
+  pointer-events: none;
+  opacity: .6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23849183' stroke-width='.7' stroke-opacity='.38'%3E%3Cpath d='M0 0 C8 8 -8 24 0 32 C8 40 -8 56 0 64 C8 72 -8 88 0 96 M32 0 C40 8 24 24 32 32 C40 40 24 56 32 64 C40 72 24 88 32 96 M64 0 C72 8 56 24 64 32 C72 40 56 56 64 64 C72 72 56 88 64 96 M96 0 C104 8 88 24 96 32 C104 40 88 56 96 64 C104 72 88 88 96 96 M0 0 C8 8 24 -8 32 0 C40 8 56 -8 64 0 C72 8 88 -8 96 0 M0 32 C8 40 24 24 32 32 C40 40 56 24 64 32 C72 40 88 24 96 32 M0 64 C8 72 24 56 32 64 C40 72 56 56 64 64 C72 72 88 56 96 64 M0 96 C8 104 24 88 32 96 C40 104 56 88 64 96 C72 104 88 88 96 96'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 108px 108px;
+  mask-image: radial-gradient(ellipse at 64% 45%, #000 0%, rgba(0,0,0,.74) 34%, rgba(0,0,0,.2) 61%, transparent 78%);
+}
+.design-lab-section {
+  background-color: #f0f2ec;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23849183' stroke-width='.7' stroke-opacity='.38'%3E%3Cpath d='M0 0 C8 8 -8 24 0 32 C8 40 -8 56 0 64 C8 72 -8 88 0 96 M32 0 C40 8 24 24 32 32 C40 40 24 56 32 64 C40 72 24 88 32 96 M64 0 C72 8 56 24 64 32 C72 40 56 56 64 64 C72 72 56 88 64 96 M96 0 C104 8 88 24 96 32 C104 40 88 56 96 64 C104 72 88 88 96 96 M0 0 C8 8 24 -8 32 0 C40 8 56 -8 64 0 C72 8 88 -8 96 0 M0 32 C8 40 24 24 32 32 C40 40 56 24 64 32 C72 40 88 24 96 32 M0 64 C8 72 24 56 32 64 C40 72 56 56 64 64 C72 72 88 56 96 64 M0 96 C8 104 24 88 32 96 C40 104 56 88 64 96 C72 104 88 88 96 96'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 108px 108px;
+  background-blend-mode: multiply;
+}
+
+/* Clean monogram: legible K, a quiet grid texture, and one lime registration mark. */
+.wordmark-icon {
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 5px 13px rgba(16,24,32,.12);
+}
+.wordmark-icon::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: .23;
+  background-image: linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+.wordmark-icon > .wordmark-k {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -1.25px;
+  transform: translateX(-.5px);
+}
+.wordmark-accent {
+  position: absolute;
+  z-index: 2;
+  right: 6px;
+  bottom: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--lime);
+  box-shadow: 0 0 0 2px rgba(213,243,106,.14);
+}
+.wordmark-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -.65px;
+}
+.wordmark-period {
+  color: #819f1c;
+  font-weight: 900;
+}
+.footer-wordmark .wordmark-icon {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+}
+.footer-wordmark .wordmark-icon > .wordmark-k {
+  font-size: 16px;
+}
+.footer-wordmark .wordmark-accent {
+  right: 5px;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+}
+@media (max-width: 620px) {
+  .hero::before {
+    inset: 0 -18px 0;
+    background-size: 92px 92px;
+    mask-image: radial-gradient(ellipse at 55% 42%, #000 0%, rgba(0,0,0,.72) 41%, transparent 79%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { background-attachment: scroll; }
 }
