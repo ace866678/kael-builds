@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight, Play } from "lucide-react";
+import { ArrowDownRight, Play } from "lucide-react";
 import "./showreel.css";
 
 export default function Showreel() {
