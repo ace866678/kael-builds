@@ -1321,3 +1321,16 @@ body::before {
   }
   body::before { animation: none; transform: none; }
 }
+
+
+/* Private payment options and mobile-friendly contact details */
+.service-payment-row { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:12px; padding:20px 23px; border:1px solid #dce2d7; border-radius:12px; background:#fff; }
+.service-payment-row strong { display:block; color:#28372e; font-size:17px; letter-spacing:-.35px; }
+.service-payment-row p { margin:7px 0 0; color:#68746d; font-size:11px; line-height:1.75; }
+.service-payment-badge { flex:0 0 auto; padding:8px 10px; border:1px solid #e0e7d9; border-radius:6px; background:#f5f7f0; color:#6b7d3a; font:8px var(--mono); letter-spacing:.6px; }
+@media (max-width: 850px) {
+  .service-payment-row { align-items:flex-start; flex-direction:column; padding:18px; }
+}
+@media (max-width: 620px) {
+  .footer-links { flex-wrap:wrap; }
+}
