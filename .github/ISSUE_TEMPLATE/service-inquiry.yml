@@ -1,0 +1,63 @@
+name: Service inquiry
+description: Ask for a quote for a landing page, website, web app, or UI/UX project.
+title: "[Service inquiry]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in working together. This request will be a **public GitHub issue**.
+        Keep the description general. Do not include passwords, payment details, private contact information, customer records, or confidential files.
+  - type: dropdown
+    id: service
+    attributes:
+      label: Which service are you interested in?
+      options:
+        - Landing page / portfolio
+        - Business website
+        - Custom web app / dashboard
+        - UI/UX design / prototype
+        - Website maintenance / improvements
+        - Not sure yet
+    validations:
+      required: true
+  - type: dropdown
+    id: budget
+    attributes:
+      label: Approximate project budget
+      description: This helps me suggest a realistic first phase.
+      options:
+        - Below ₱5,000
+        - ₱5,000–₱12,000
+        - ₱12,000–₱25,000
+        - ₱25,000+
+        - Need help scoping the budget
+    validations:
+      required: true
+  - type: input
+    id: timeline
+    attributes:
+      label: Desired timeline
+      description: When would you like the first version or launch?
+      placeholder: e.g. 3–4 weeks, flexible
+    validations:
+      required: false
+  - type: textarea
+    id: project
+    attributes:
+      label: What do you want to build?
+      description: Share the goal, core features, and who it is for. Keep confidential information out.
+      placeholder: "I need a website that helps..."
+    validations:
+      required: true
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: This is for
+      options:
+        - A business
+        - A personal project
+        - School / research
+        - An organization or team
+        - Other
+    validations:
+      required: true
