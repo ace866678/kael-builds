@@ -37,7 +37,8 @@ jobs:
 
           archive = Path("websites.zip")
           if not archive.is_file():
-              print("websites.zip is already extracted; nothing to do.")\n              raise SystemExit(0)
+              print("websites.zip is already extracted; nothing to do.")
+              raise SystemExit(0)
 
           output_root = Path("public/images/uploaded")
           allowed = {".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif", ".svg"}
