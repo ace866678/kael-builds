@@ -34,13 +34,33 @@ type Project = {
   category: Category;
   status: string;
   tags: string[];
-  repo?: string;
   liveUrl?: string;
   screenshotUrl?: string;
   visual: "research" | "alvora" | "iot" | "server";
 };
 
 const filters: Filter[] = ["All work", "Web apps", "Research", "Systems"];
+
+const CONTACT_EMAIL = "delapuertaroniel@gmail.com";
+const PORTFOLIO_URL = "https://kael-builds.vercel.app";
+
+function buildGmailComposeUrl(subject: string, service: string) {
+  const body = [
+    "Hi Kael,",
+    "",
+    `I'm interested in asking about: ${service}.`,
+    "",
+    "Project goal:",
+    "Key pages or features:",
+    "Target timeline:",
+    "Approximate budget (PHP):",
+    "",
+    "Please share the proposed scope, quote, and payment steps.",
+  ].join("\\n");
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PORTFOLIO_URL)}`;
 
 const projects: Project[] = [
   {
@@ -67,7 +87,6 @@ const projects: Project[] = [
     category: "Web apps",
     status: "Early prototype",
     tags: ["React", "TypeScript", "Vite"],
-    repo: "https://github.com/ace866678/alvora",
     liveUrl: "https://alvora-nine.vercel.app/",
     screenshotUrl: "https://image.thum.io/get/width/1200/crop/760/noanimate/https://alvora-nine.vercel.app/",
     visual: "alvora",
@@ -106,9 +125,8 @@ const projects: Project[] = [
     description:
       "Cross-play Minecraft server tooling built around repeatable setup, maintenance, backups, and a management path for server operators.",
     category: "Systems",
-    status: "Public repository",
+    status: "Tooling project",
     tags: ["Python", "Shell", "Server tooling"],
-    repo: "https://github.com/ace866678/MCL-server",
     visual: "server",
   },
 ];
@@ -598,8 +616,7 @@ function App() {
                       <div className="project-card-footer">
                         <div className="project-links">
                           {project.liveUrl && <a className="text-link" href={project.liveUrl} target="_blank" rel="noreferrer">Live website <ArrowUpRight size={16} /></a>}
-                          {project.repo && <a className="text-link text-link-source" href={project.repo} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={16} /></a>}
-                          {!project.liveUrl && !project.repo && <span className="text-link text-link-pending">Case study in progress <span>↗</span></span>}
+                          {!project.liveUrl && <span className="text-link text-link-pending">Project overview available on request <span>↗</span></span>}
                         </div>
                         <span className="category-label">{project.category}</span>
                       </div>
@@ -608,8 +625,8 @@ function App() {
                 );
               })}
             </div>
-            <div className="work-note"><Sparkles size={15} /><span>Live project cards use website screenshot previews. Conceptual artwork is labeled where a live website is not available; source links are included where public repositories are confirmed.</span></div>
-            <div className="all-projects-cta"><span>There’s always something new on the workbench.</span><a href="https://github.com/ace866678?tab=repositories" target="_blank" rel="noreferrer">Explore GitHub repositories <ArrowUpRight size={16} /></a></div>
+            <div className="work-note"><Sparkles size={15} /><span>Live previews open the project website. For work still in progress, ask me for a short overview and next steps.</span></div>
+            <div className="all-projects-cta"><span>Have a project with a similar goal?</span><a href="#services">Explore services <ArrowUpRight size={16} /></a></div>
           </div>
         </section>
 
@@ -637,7 +654,7 @@ function App() {
                   <li><Check size={14} /> Clear calls to action</li>
                   <li><Check size={14} /> Basic SEO and launch setup</li>
                 </ul>
-                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+                <a className="service-cta" href={buildGmailComposeUrl("Service inquiry — Landing page or portfolio", "Landing page / portfolio")}>Request this service <ArrowUpRight size={16} /></a>
               </article>
 
               <article className="service-card">
@@ -650,7 +667,7 @@ function App() {
                   <li><Check size={14} /> Mobile-friendly layouts</li>
                   <li><Check size={14} /> Contact and inquiry actions</li>
                 </ul>
-                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+                <a className="service-cta" href={buildGmailComposeUrl("Service inquiry — Business website", "Business website")}>Request this service <ArrowUpRight size={16} /></a>
               </article>
 
               <article className="service-card service-card-featured">
@@ -663,7 +680,7 @@ function App() {
                   <li><Check size={14} /> API, database, or sign-in integration quoted by scope</li>
                   <li><Check size={14} /> Deployment and handover</li>
                 </ul>
-                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+                <a className="service-cta" href={buildGmailComposeUrl("Service inquiry — Custom web app or dashboard", "Custom web app / dashboard")}>Request this service <ArrowUpRight size={16} /></a>
               </article>
 
               <article className="service-card">
@@ -676,13 +693,17 @@ function App() {
                   <li><Check size={14} /> Up to five key screens</li>
                   <li><Check size={14} /> Clickable prototype handoff</li>
                 </ul>
-                <a className="service-cta" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Request this service <ArrowUpRight size={16} /></a>
+                <a className="service-cta" href={buildGmailComposeUrl("Service inquiry — UI/UX design or prototype", "UI/UX design / prototype")}>Request this service <ArrowUpRight size={16} /></a>
               </article>
             </div>
 
             <div className="service-support-row">
               <div><span className="service-support-label">ONGOING SUPPORT</span><strong>Site updates & maintenance from ₱1,500/month</strong><p>Small improvements and routine upkeep can be quoted as a monthly arrangement.</p></div>
-              <a className="text-link" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml">Ask about maintenance <ArrowUpRight size={16} /></a>
+              <a className="text-link" href={buildGmailComposeUrl("Service inquiry — Website maintenance", "Website maintenance / improvements")}>Ask about maintenance <ArrowUpRight size={16} /></a>
+            </div>
+            <div className="service-payment-row">
+              <div><span className="service-support-label">PAYMENT OPTIONS</span><strong>GCash or PayPal</strong><p>No credit card or debit card is required to start an inquiry. After scope and price are agreed, I'll share payment instructions privately.</p></div>
+              <span className="service-payment-badge">PRIVATE PAYMENT DETAILS</span>
             </div>
             <p className="service-pricing-note">Prices are starting estimates in PHP, not fixed quotes. Final scope is agreed before work begins. Domain registration, paid hosting, premium tools, payment-provider fees, and third-party subscriptions are separate unless stated in the quote.</p>
           </div>
@@ -787,7 +808,7 @@ function App() {
               <p>This portfolio is a living record of that process: the things I build, the questions I follow, and the lessons I carry into the next project.</p>
               <div className="skills-block">
                 <div className="skills-title"><span>TOOLS & TOPICS</span><span>WHAT I'M EXPLORING</span></div>
-                <div className="skills-tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Firebase</span><span>Git & GitHub</span><span>Vercel</span><span>IoT research</span><span>UI systems</span></div>
+                <div className="skills-tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Firebase</span><span>Deployment workflows</span><span>Vercel</span><span>IoT research</span><span>UI systems</span></div>
               </div>
             </div>
           </div>
@@ -799,15 +820,15 @@ function App() {
               <div className="eyebrow"><span className="eyebrow-mark" /> LET'S WORK TOGETHER</div>
               <h2>Ready to build<br /><span>something useful?</span></h2>
               <p>Share what you need, your target timeline, and an approximate budget. I'll review the scope and use it to prepare a quote.</p>
-              <a className="button button-light" href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml" target="_blank" rel="noreferrer">Request a quote <ArrowUpRight size={17} /></a>
+              <a className="button button-light" href={buildGmailComposeUrl("Service inquiry — Project quote", "Project quote")} target="_blank" rel="noreferrer">Request a quote <ArrowUpRight size={17} /></a>
             </div>
             <div className="contact-card">
               <div className="contact-card-top"><span>PROJECT INQUIRY</span><span className="contact-pulse"><i /> OPEN</span></div>
               <div className="contact-monogram">K<span>.</span></div>
-              <p>Tell me what you have in mind. I'll review the brief and follow up on the scope.</p>
-              <a href="https://github.com/ace866678/kael-builds/issues/new?template=service-inquiry.yml" target="_blank" rel="noreferrer">Open service inquiry form <ExternalLink size={15} /></a>
-              <div className="contact-card-bottom"><span>START WITH A CLEAR SCOPE</span><ArrowUpRight size={16} /></div>
-              <p className="contact-privacy-note">GitHub inquiries are public. Don't include passwords, payment details, private contact information, or confidential files.</p>
+              <p>Tell me what you need, your timeline, and approximate budget. I'll reply with a proposed scope and quote.</p>
+              <a href={buildGmailComposeUrl("Service inquiry — General project", "General project inquiry")} target="_blank" rel="noreferrer">Email me through Gmail <ExternalLink size={15} /></a>
+              <div className="contact-card-bottom"><span>GCASH OR PAYPAL</span><ArrowUpRight size={16} /></div>
+              <p className="contact-privacy-note">Payment instructions are shared privately after the scope and quote are agreed. Never send a payment before confirming the details.</p>
             </div>
           </div>
         </section>
@@ -817,7 +838,7 @@ function App() {
         <div className="page-shell footer-inner">
           <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span><span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span></a>
           <span className="footer-note">Built with curiosity, care, and React.</span>
-          <div className="footer-links"><a href="https://github.com/ace866678" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} /></a><a href="#home">Back to top ↑</a></div>
+          <div className="footer-links"><a href={buildGmailComposeUrl("Portfolio inquiry", "Portfolio inquiry")} target="_blank" rel="noreferrer">Email me <ArrowUpRight size={14} /></a><a href={facebookShareUrl} target="_blank" rel="noreferrer">Share on Facebook <ExternalLink size={14} /></a><a href="#home">Back to top ↑</a></div>
           <span className="footer-year">© {new Date().getFullYear()} KAEL BUILDS</span>
         </div>
       </footer>
