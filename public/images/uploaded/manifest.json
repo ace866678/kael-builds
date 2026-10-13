@@ -1,0 +1,36 @@
+{
+  "source": "websites.zip",
+  "count": 6,
+  "images": [
+    {
+      "archiveName": "MCL Server.png",
+      "path": "/images/uploaded/MCL Server.png",
+      "bytes": 281411
+    },
+    {
+      "archiveName": "Study Vault.png",
+      "path": "/images/uploaded/Study Vault.png",
+      "bytes": 161433
+    },
+    {
+      "archiveName": "PUV Guard.png",
+      "path": "/images/uploaded/PUV Guard.png",
+      "bytes": 719950
+    },
+    {
+      "archiveName": "Research Room.png",
+      "path": "/images/uploaded/Research Room.png",
+      "bytes": 664599
+    },
+    {
+      "archiveName": "Alvora.png",
+      "path": "/images/uploaded/Alvora.png",
+      "bytes": 196741
+    },
+    {
+      "archiveName": "Researcg Room Login Page.png",
+      "path": "/images/uploaded/Researcg Room Login Page.png",
+      "bytes": 587657
+    }
+  ]
+}
