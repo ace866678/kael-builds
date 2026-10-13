@@ -204,6 +204,32 @@ function ProjectArtwork({ kind }: { kind: Project["visual"] }) {
 }
 
 
+
+function ProjectVisual({ project }: { project: Project }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const hasUsableScreenshot = Boolean(project.screenshotUrl) && !imageFailed;
+
+  return (
+    <div className={hasUsableScreenshot ? "project-art-wrap project-art-wrap-live" : "project-art-wrap"}>
+      {hasUsableScreenshot ? (
+        <a className="live-screenshot-link" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open live ${project.name} website`}>
+          <img
+            className="live-screenshot"
+            src={project.screenshotUrl}
+            alt={`Screenshot preview of the live ${project.name} website`}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+          />
+          <span className="screenshot-overlay">OPEN LIVE SITE <ArrowUpRight size={14} /></span>
+        </a>
+      ) : (
+        <ProjectArtwork kind={project.visual} />
+      )}
+      <span className="project-number">{project.number}</span>
+    </div>
+  );
+}
+
 type DesignKind =
   | "bento"
   | "commerce"
@@ -328,14 +354,14 @@ function DesignPreview({ sample }: { sample: DesignSample }) {
         {sample.kind === "commerce" && (
           <>
             <div className="commerce-nav"><b>FORM<span> / OBJECT</span></b><div>SHOP&nbsp;&nbsp;&nbsp; JOURNAL&nbsp;&nbsp;&nbsp; ABOUT</div><span> BAG (02)</span></div>
-            <div className="commerce-hero"><div className="commerce-copy"><span className="design-kicker">OBJECTS FOR EVERYDAY RITUALS</span><h4>Less, but<br /><em>better.</em></h4><p>Thoughtful pieces for a slower, more considered life.</p><span className="commerce-link">EXPLORE THE COLLECTION ↗</span></div><div className="commerce-object"><div className="commerce-vase commerce-vase-one" /><div className="commerce-vase commerce-vase-two" /><div className="commerce-orbit" /><span>STUDIO SERIES / 04</span></div></div>
+            <div className="commerce-hero"><div className="commerce-copy"><span className="design-kicker">OBJECTS FOR EVERYDAY RITUALS</span><h4>Less, but<br /><em>better.</em></h4><p>Thoughtful pieces for a slower, more considered life.</p><span className="commerce-link">EXPLORE THE COLLECTION ↗</span></div><div className="commerce-object"><img className="design-scene-image commerce-scene-image" src="/images/design-commerce-still-life.svg" alt="" loading="lazy" /><div className="commerce-vase commerce-vase-one" /><div className="commerce-vase commerce-vase-two" /><div className="commerce-orbit" /><span>STUDIO SERIES / 04</span></div></div>
             <div className="commerce-bottom"><span>01 — 04 / HOME OBJECTS</span><span>DESIGNED TO LAST&nbsp; ↗</span></div>
           </>
         )}
         {sample.kind === "portfolio" && (
           <>
             <div className="portfolio-nav"><b>AM<span>®</span></b><span>SELECTED WORK 2024—26</span><span>ABOUT ↗</span></div>
-            <div className="portfolio-hero"><div className="portfolio-big-type">Designing<br /><i>what's</i><br />next<span>.</span></div><div className="portfolio-art"><div className="portfolio-art-circle" /><div className="portfolio-art-sun" /><div className="portfolio-art-block">A—26</div><span>CREATIVE<br />DEVELOPMENT</span></div></div>
+            <div className="portfolio-hero"><div className="portfolio-big-type">Designing<br /><i>what's</i><br />next<span>.</span></div><div className="portfolio-art"><img className="design-scene-image portfolio-scene-image" src="/images/design-creative-collage.svg" alt="" loading="lazy" /><div className="portfolio-art-circle" /><div className="portfolio-art-sun" /><div className="portfolio-art-block">A—26</div><span>CREATIVE<br />DEVELOPMENT</span></div></div>
             <div className="portfolio-footer"><span>INDEPENDENT DESIGNER / MAKER</span><span>SCROLL TO EXPLORE ↓</span></div>
           </>
         )}
@@ -350,7 +376,7 @@ function DesignPreview({ sample }: { sample: DesignSample }) {
         {sample.kind === "travel" && (
           <>
             <div className="travel-nav"><b>wander<span> / collective</span></b><span>DESTINATIONS&nbsp;&nbsp; JOURNAL&nbsp;&nbsp; OUR STORY</span><b className="travel-menu">☰</b></div>
-            <div className="travel-scenery"><div className="travel-sun" /><div className="travel-mountain travel-mountain-back" /><div className="travel-mountain travel-mountain-front" /><div className="travel-water" /><div className="travel-copy"><span>YOUR NEXT CHAPTER</span><h4>Find your<br /><i>somewhere.</i></h4><p>Remarkable places. Unhurried journeys.</p><span className="travel-discover">DISCOVER PLACES&nbsp; ↗</span></div><span className="travel-location">SIARGAO, PHILIPPINES · 09°47′N</span></div>
+            <div className="travel-scenery"><img className="design-scene-image travel-scene-image" src="/images/design-travel-scene.svg" alt="" loading="lazy" /><div className="travel-sun" /><div className="travel-mountain travel-mountain-back" /><div className="travel-mountain travel-mountain-front" /><div className="travel-water" /><div className="travel-copy"><span>YOUR NEXT CHAPTER</span><h4>Find your<br /><i>somewhere.</i></h4><p>Remarkable places. Unhurried journeys.</p><span className="travel-discover">DISCOVER PLACES&nbsp; ↗</span></div><span className="travel-location">SIARGAO, PHILIPPINES · 09°47′N</span></div>
             <div className="travel-search"><div><span>WHERE TO?</span><b>Find your destination</b></div><div><span>WHEN?</span><b>Choose dates</b></div><span className="travel-search-btn">SEARCH&nbsp; ↗</span></div>
           </>
         )}
@@ -561,15 +587,7 @@ function App() {
                 const isFeatured = project.id === "research-room" && filter === "All work";
                 return (
                   <article className={isFeatured ? "project-card project-card-featured" : "project-card"} key={project.id}>
-                    <div className={project.screenshotUrl ? "project-art-wrap project-art-wrap-live" : "project-art-wrap"}>
-                      {project.screenshotUrl ? (
-                        <a className="live-screenshot-link" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open live ${project.name} website`}>
-                          <img className="live-screenshot" src={project.screenshotUrl} alt={`Screenshot preview of the live ${project.name} website`} loading="lazy" />
-                          <span className="screenshot-overlay">LIVE WEBSITE <ArrowUpRight size={14} /></span>
-                        </a>
-                      ) : <ProjectArtwork kind={project.visual} />}
-                      <span className="project-number">{project.number}</span>
-                    </div>
+                    <ProjectVisual project={project} />
                     <div className="project-copy">
                       <div className="project-meta"><span>{project.eyebrow}</span><span className="project-status"><i />{project.status}</span></div>
                       <h3>{project.name}</h3>
