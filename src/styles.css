@@ -854,6 +854,35 @@ a.text-link:hover svg { transform: translate(2px, -2px); }
 .fitness-tip small { margin-top:3px; font-size:7px; color:#5a7250; }
 .fitness-tip > span:last-child { margin-left:auto; }
 
+
+/* Local artwork keeps the image-heavy design studies complete without third-party requests. */
+.design-scene-image {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.commerce-object .design-scene-image { opacity: .98; }
+.commerce-object::before { display: none; }
+.commerce-object .commerce-vase,
+.commerce-object .commerce-orbit { display: none; }
+.commerce-object > span { z-index: 3; color: #fff9ed; text-shadow: 0 1px 6px rgba(35,30,23,.65); }
+.portfolio-art .design-scene-image { opacity: 1; }
+.portfolio-art .portfolio-art-circle,
+.portfolio-art .portfolio-art-sun,
+.portfolio-art .portfolio-art-block { display: none; }
+.portfolio-art > span { z-index: 2; text-shadow: 0 1px 7px rgba(25,20,33,.65); }
+.travel-scenery .design-scene-image { z-index: 0; }
+.travel-scenery .travel-sun,
+.travel-scenery .travel-mountain,
+.travel-scenery .travel-water { display: none; }
+.travel-scenery .travel-copy { z-index: 2; text-shadow: 0 1px 7px rgba(20,40,43,.35); }
+.travel-scenery .travel-copy .travel-discover { text-shadow: none; }
+.travel-scenery .travel-location { z-index: 2; text-shadow: 0 1px 6px rgba(20,40,43,.72); }
+
 /* AI assistant */
 .design-preview-assistant { background:#f7f5ff; }
 .assistant-nav { color:#858398; font-size:7px; }
