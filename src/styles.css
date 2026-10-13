@@ -1048,3 +1048,201 @@ body {
 @media (prefers-reduced-motion: reduce) {
   body { background-attachment: scroll; }
 }
+
+
+/* Ambient motion system: quiet drift, purposeful reveals, and tactile controls. */
+body {
+  background-position: 0 0;
+  animation: mesh-background-drift 58s ease-in-out infinite alternate;
+}
+@keyframes mesh-background-drift {
+  0% { background-position: 0 0; }
+  52% { background-position: 22px 14px; }
+  100% { background-position: 8px 30px; }
+}
+
+.hero::before {
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: 64% 45%;
+  animation: hero-mesh-breathe 25s ease-in-out infinite alternate;
+}
+@keyframes hero-mesh-breathe {
+  from { transform: translate3d(-5px, 2px, 0) scale(1); }
+  to { transform: translate3d(9px, -7px, 0) scale(1.035); }
+}
+.hero-art::before {
+  background-position: 0 0;
+  animation: panel-grid-drift 34s ease-in-out infinite alternate;
+}
+@keyframes panel-grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 28px -18px; }
+}
+.hero-orbit-one {
+  transform-origin: center;
+  animation: orbit-one-breathe 11s ease-in-out infinite alternate;
+}
+@keyframes orbit-one-breathe {
+  from { transform: translate(-50%, -50%) rotate(-31deg) scale(.97); }
+  to { transform: translate(-50%, -50%) rotate(-25deg) scale(1.04); }
+}
+.hero-orbit-two {
+  transform-origin: center;
+  animation: orbit-two-breathe 14s ease-in-out infinite alternate;
+}
+@keyframes orbit-two-breathe {
+  from { transform: translate(-50%, -50%) rotate(33deg) scale(1.02); }
+  to { transform: translate(-50%, -50%) rotate(40deg) scale(.96); }
+}
+.hero-core {
+  animation: hero-core-float 7.5s ease-in-out infinite;
+}
+@keyframes hero-core-float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+  50% { transform: translate(-50%, calc(-50% - 6px)) rotate(-2deg); }
+}
+.orbit-card-web { animation: orbit-card-float 6.2s ease-in-out infinite; }
+.orbit-card-research { animation: orbit-card-float 7.1s ease-in-out -2.3s infinite; }
+.orbit-card-systems { animation: orbit-card-float 6.7s ease-in-out -4.1s infinite; }
+@keyframes orbit-card-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+.wordmark-icon {
+  transition: transform .28s cubic-bezier(.2,.75,.25,1), box-shadow .28s ease;
+}
+.wordmark:hover .wordmark-icon,
+.wordmark:focus-visible .wordmark-icon {
+  transform: rotate(-4deg) translateY(-1px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 8px 20px rgba(16,24,32,.18);
+}
+.wordmark-accent {
+  animation: lime-marker-glow 4.8s ease-in-out infinite;
+}
+@keyframes lime-marker-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(213,243,106,.08); }
+  50% { box-shadow: 0 0 0 4px rgba(213,243,106,.12), 0 0 12px rgba(213,243,106,.38); }
+}
+.primary-nav > a:not(.nav-contact) {
+  position: relative;
+}
+.primary-nav > a:not(.nav-contact)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: #9ab72f;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+.primary-nav > a:not(.nav-contact):hover::after,
+.primary-nav > a:not(.nav-contact):focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Reveal elements as the reader reaches them. JS adds these classes only when
+   IntersectionObserver is available, so content remains visible as a fallback. */
+.reveal-on-scroll {
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity .72s cubic-bezier(.2,.7,.2,1),
+    translate .72s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.motion-ready .reveal-on-scroll:not(.is-visible) {
+  opacity: 0;
+  translate: 0 20px;
+}
+.motion-ready .hero-copy.reveal-on-scroll:not(.is-visible) {
+  translate: -12px 12px;
+}
+.motion-ready .hero-art.reveal-on-scroll:not(.is-visible) {
+  translate: 12px 12px;
+}
+.motion-ready .is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.project-card .project-number {
+  transition: transform .22s ease, background .22s ease, color .22s ease;
+}
+.project-card:hover .project-number,
+.project-card:focus-within .project-number {
+  transform: translateY(-2px);
+  background: var(--ink);
+  color: var(--lime);
+}
+.project-art-wrap:not(.project-art-wrap-live) .artwork {
+  transition: transform .45s cubic-bezier(.2,.75,.25,1);
+}
+.project-card:hover .project-art-wrap:not(.project-art-wrap-live) .artwork {
+  transform: scale(1.018);
+}
+.design-preview {
+  transform-origin: center;
+}
+.design-preview-commerce .commerce-vase-one,
+.design-preview-commerce .commerce-vase-two {
+  animation: object-settle 6s ease-in-out infinite alternate;
+}
+.design-preview-commerce .commerce-vase-two { animation-delay: -2.5s; }
+@keyframes object-settle {
+  from { translate: 0 0; }
+  to { translate: 0 -4px; }
+}
+.design-preview-travel .travel-sun {
+  animation: sun-glow 8s ease-in-out infinite alternate;
+}
+@keyframes sun-glow {
+  from { transform: scale(.96); box-shadow: 0 0 0 14px rgba(255,235,194,.23); }
+  to { transform: scale(1.04); box-shadow: 0 0 0 23px rgba(255,235,194,.34); }
+}
+.design-preview-assistant .assistant-orb {
+  animation: assistant-orb-breathe 5s ease-in-out infinite;
+}
+@keyframes assistant-orb-breathe {
+  0%, 100% { transform: rotate(-4deg) scale(1); box-shadow: 0 8px 21px rgba(105,77,165,.1); }
+  50% { transform: rotate(4deg) scale(1.05); box-shadow: 0 12px 26px rgba(105,77,165,.18); }
+}
+.design-preview-iot .iot-status i {
+  animation: status-pulse 2.8s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(82,191,149,.12); }
+  50% { box-shadow: 0 0 0 6px rgba(82,191,149,.04); }
+}
+.filter-button:active,
+.button:active,
+.design-arrow-controls button:active {
+  transform: translateY(1px) scale(.985);
+}
+.live-screenshot-link .screenshot-overlay {
+  transition: background .2s ease, padding .2s ease;
+}
+.live-screenshot-link:hover .screenshot-overlay,
+.live-screenshot-link:focus-visible .screenshot-overlay {
+  padding-inline: 13px;
+  background: rgba(22, 24, 21, .98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .motion-ready .reveal-on-scroll:not(.is-visible) {
+    opacity: 1;
+    translate: 0 0;
+  }
+  body { background-attachment: scroll; background-position: 0 0; }
+}
