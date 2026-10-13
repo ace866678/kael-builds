@@ -1334,3 +1334,46 @@ body::before {
 @media (max-width: 620px) {
   .footer-links { flex-wrap:wrap; }
 }
+
+
+/* Locally hosted project screenshots extracted from the portfolio image pack */
+.project-preview-frame,
+.project-image-static {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  background: #e9e9e2;
+}
+.project-preview-frame { width: 100%; height: 100%; }
+.project-preview-primary {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 420ms ease;
+}
+.project-preview-secondary {
+  position: absolute;
+  z-index: 2;
+  right: 14px;
+  bottom: 14px;
+  display: block;
+  width: min(39%, 180px);
+  max-height: 47%;
+  object-fit: cover;
+  object-position: top center;
+  border: 3px solid rgba(255,255,255,.96);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(12,22,16,.25);
+}
+.live-screenshot-link:hover .project-preview-primary,
+.live-screenshot-link:focus-visible .project-preview-primary {
+  transform: scale(1.025);
+}
+.project-image-static .screenshot-overlay { cursor: default; }
+@media (max-width: 620px) {
+  .project-preview-secondary { right: 9px; bottom: 9px; width: 42%; border-width: 2px; border-radius: 6px; }
+}
