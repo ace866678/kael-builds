@@ -2,30 +2,69 @@
 
 **Ideas into real projects.**
 
-Kael Builds is the working name for a personal developer portfolio focused on web applications, research tools, and connected-system prototypes.
+A personal portfolio exploring web applications, research workflows, and connected-system projects.
 
-## Portfolio direction
+## Preview
 
-- **Headline:** I build digital tools for real-world problems.
-- **Visual style:** warm, readable surfaces; charcoal hero; lime accent; generous spacing; restrained motion.
-- **Initial sections:** Home · Selected Work · How I Work · About · Contact
-- **Planned stack:** React + TypeScript + Vite, responsive styling, Lucide React, GitHub, and Vercel.
-- **Version one:** a responsive static site with genuine project evidence and working contact links. No database or authentication required.
+The site is built as a responsive single-page portfolio with:
+- A custom editorial/technical visual identity.
+- Responsive navigation and accessible keyboard focus.
+- Interactive project filters.
+- Project-specific illustrative artwork, clearly labeled when it's not a real screenshot.
+- Process, about, tools, and contact sections.
+- Reduced-motion support and basic social/search metadata.
 
-## Planning document
+## Stack
 
-Read the full content, design, project evidence, screenshot checklist, technology recommendations, mobile layout, and launch criteria here:
+- React + TypeScript
+- Vite
+- Lucide React icons
+- Custom responsive CSS
+- GitHub for source control
+- Vercel for hosting
 
-**[Portfolio Content & Design Plan](docs/portfolio-content-design-plan.md)**
+No database or secrets are required for the portfolio's first version.
 
-## Current status
+## Run locally
 
-This repository currently contains the portfolio plan; the website itself has not been implemented yet. The project list includes items at different stages, so public content must distinguish live work, prototypes, and work in progress. Links to Research Room and the IoT crash-detection project still need to be verified, and project screenshots still need to be collected.
+Requires Node.js 20+ and npm.
 
-## Suggested next steps
+```bash
+npm install
+npm run dev
+```
 
-1. Confirm the public display name and selected projects.
-2. Collect genuine desktop/mobile screenshots and verified repository/demo URLs.
-3. Sketch the desktop and mobile layouts.
-4. Implement the responsive portfolio.
-5. Connect this repository to Vercel and test the production deployment.
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+The Vite build output is `dist/`.
+
+## Deploy on Vercel
+
+1. Import `https://github.com/ace866678/kael-builds` as a new Vercel project.
+2. Choose the Vite framework preset if auto-detection does not select it.
+3. Use `npm run build` as the build command and `dist` as the output directory.
+4. Deploy the `main` branch to production; future pushes can trigger redeployments when Git integration is enabled.
+
+No environment variables are required.
+
+## Featured work & accuracy notes
+
+- **Research Room** — a collaborative research workspace in progress. A public repository/demo link still needs to be added once verified.
+- **Alvora** — an early opportunity-discovery prototype. [Public source repository](https://github.com/ace866678/alvora). Its README describes the current listings as illustrative demo content rather than a verified live feed.
+- **IoT Crash Detection** — a research project exploring crash detection and emergency alerts for motorcycle and tricycle drivers in Kalibo. It is not presented as a certified or field-validated emergency device.
+- **MCL Server** — public server tooling. [Public source repository](https://github.com/ace866678/MCL-server).
+
+The card illustrations are portfolio artwork, not screenshots from the actual products. Only verified public repositories have source links. StudyVault is omitted from the featured section because its repository is private.
+
+## Before sharing widely
+
+- Replace project artwork with genuine screenshots when available.
+- Add a Research Room source/demo URL only after testing the exact link.
+- Confirm the current state of the IoT project and label it accordingly.
+- Check all external links, mobile layouts, color contrast, and keyboard navigation.
+- Run `npm run build` before deploying.
