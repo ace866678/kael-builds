@@ -5,6 +5,9 @@ import {
   ArrowRight,
   ArrowUpRight,
   BookOpen,
+  ChevronLeft,
+  ChevronRight,
+  Palette,
   Check,
   Code2,
   ExternalLink,
@@ -200,9 +203,210 @@ function ProjectArtwork({ kind }: { kind: Project["visual"] }) {
   );
 }
 
+
+type DesignKind =
+  | "bento"
+  | "commerce"
+  | "portfolio"
+  | "analytics"
+  | "travel"
+  | "learning"
+  | "event"
+  | "fitness"
+  | "assistant"
+  | "iot";
+
+type DesignSample = {
+  number: string;
+  name: string;
+  category: string;
+  description: string;
+  tags: string[];
+  kind: DesignKind;
+};
+
+const designSamples: DesignSample[] = [
+  {
+    number: "01",
+    name: "Orbit Workspace",
+    category: "SaaS dashboard",
+    description: "A calm, modular productivity dashboard built around a strong grid, quick status checks, and a clear next action.",
+    tags: ["Bento grid", "Productivity", "Light UI"],
+    kind: "bento",
+  },
+  {
+    number: "02",
+    name: "Form & Object",
+    category: "Editorial commerce",
+    description: "A premium storefront concept with oversized type, restrained navigation, and gallery-like product storytelling.",
+    tags: ["E-commerce", "Editorial", "Minimal"],
+    kind: "commerce",
+  },
+  {
+    number: "03",
+    name: "Alex Mori",
+    category: "Creative portfolio",
+    description: "A bold designer portfolio using layered color, oversized typography, and a playful art-directed visual.",
+    tags: ["Portfolio", "Expressive type", "Color"],
+    kind: "portfolio",
+  },
+  {
+    number: "04",
+    name: "Northstar",
+    category: "Fintech analytics",
+    description: "A data-forward finance interface that pairs high-contrast metrics with compact charts and a focused action panel.",
+    tags: ["Analytics", "Dark UI", "Data viz"],
+    kind: "analytics",
+  },
+  {
+    number: "05",
+    name: "Wander Collective",
+    category: "Travel landing page",
+    description: "A destination-led travel concept with a scenic visual field, minimal copy, and one obvious search action.",
+    tags: ["Travel", "Immersive hero", "Booking"],
+    kind: "travel",
+  },
+  {
+    number: "06",
+    name: "Learnloop",
+    category: "Learning platform",
+    description: "A friendly learning dashboard that turns progress into small milestones and makes the next lesson easy to find.",
+    tags: ["EdTech", "Progress tracking", "Cards"],
+    kind: "learning",
+  },
+  {
+    number: "07",
+    name: "Make Waves",
+    category: "Event identity",
+    description: "An energetic event landing page with a punchy poster-like headline, clear event details, and a strong ticket call-to-action.",
+    tags: ["Events", "Brutalist type", "High energy"],
+    kind: "event",
+  },
+  {
+    number: "08",
+    name: "Pulse Training",
+    category: "Fitness mobile UI",
+    description: "A compact wellness interface centered on daily movement, readable activity rings, and small achievable goals.",
+    tags: ["Fitness", "Mobile-first", "Dark mode"],
+    kind: "fitness",
+  },
+  {
+    number: "09",
+    name: "Studio AI",
+    category: "AI assistant",
+    description: "A soft, focused AI workspace that makes conversation feel approachable while keeping suggested actions close at hand.",
+    tags: ["AI product", "Conversational UI", "Soft gradient"],
+    kind: "assistant",
+  },
+  {
+    number: "10",
+    name: "Signal Home",
+    category: "IoT monitoring",
+    description: "A connected-home control panel combining live device states, environmental readings, and a simple energy trend.",
+    tags: ["IoT", "Smart home", "Monitoring"],
+    kind: "iot",
+  },
+];
+
+function DesignPreview({ sample }: { sample: DesignSample }) {
+  return (
+    <div className={`design-preview design-preview-${sample.kind}`} aria-hidden="true">
+      <div className="design-browser">
+        <span className="design-browser-dots"><i /><i /><i /></span>
+        <span className="design-browser-address">{sample.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.concept</span>
+        <span className="design-browser-label">DESIGN STUDY</span>
+      </div>
+
+      <div className="design-screen">
+        {sample.kind === "bento" && (
+          <>
+            <div className="bento-top"><div className="bento-brand"><span>◈</span> orbit<span className="bento-brand-dot">.</span></div><div className="bento-mini-nav"><b>Overview</b><span>Projects</span><span>Team</span></div><span className="bento-avatar">KJ</span></div>
+            <div className="bento-intro"><div><span className="design-kicker">MONDAY, 09:41 AM</span><h4>Your space to<br />make progress.</h4></div><span className="bento-add">＋ New project</span></div>
+            <div className="bento-grid"><div className="bento-card bento-card-feature"><span>FOCUS THIS WEEK</span><b>Build with<br />intention.</b><small>4 tasks · 2 priorities</small><div className="bento-progress"><i /></div></div><div className="bento-card bento-card-stat"><span>PROJECTS</span><b>08</b><small>↗ 2 this month</small></div><div className="bento-card bento-card-stat"><span>FOCUS HOURS</span><b>12.5</b><small>On your way</small></div><div className="bento-card bento-card-task"><span className="bento-check">✓</span><div><b>Review the sprint</b><small>Today · 2:30 PM</small></div><span>↗</span></div></div>
+          </>
+        )}
+        {sample.kind === "commerce" && (
+          <>
+            <div className="commerce-nav"><b>FORM<span> / OBJECT</span></b><div>SHOP&nbsp;&nbsp;&nbsp; JOURNAL&nbsp;&nbsp;&nbsp; ABOUT</div><span> BAG (02)</span></div>
+            <div className="commerce-hero"><div className="commerce-copy"><span className="design-kicker">OBJECTS FOR EVERYDAY RITUALS</span><h4>Less, but<br /><em>better.</em></h4><p>Thoughtful pieces for a slower, more considered life.</p><span className="commerce-link">EXPLORE THE COLLECTION ↗</span></div><div className="commerce-object"><div className="commerce-vase commerce-vase-one" /><div className="commerce-vase commerce-vase-two" /><div className="commerce-orbit" /><span>STUDIO SERIES / 04</span></div></div>
+            <div className="commerce-bottom"><span>01 — 04 / HOME OBJECTS</span><span>DESIGNED TO LAST&nbsp; ↗</span></div>
+          </>
+        )}
+        {sample.kind === "portfolio" && (
+          <>
+            <div className="portfolio-nav"><b>AM<span>®</span></b><span>SELECTED WORK 2024—26</span><span>ABOUT ↗</span></div>
+            <div className="portfolio-hero"><div className="portfolio-big-type">Designing<br /><i>what's</i><br />next<span>.</span></div><div className="portfolio-art"><div className="portfolio-art-circle" /><div className="portfolio-art-sun" /><div className="portfolio-art-block">A—26</div><span>CREATIVE<br />DEVELOPMENT</span></div></div>
+            <div className="portfolio-footer"><span>INDEPENDENT DESIGNER / MAKER</span><span>SCROLL TO EXPLORE ↓</span></div>
+          </>
+        )}
+        {sample.kind === "analytics" && (
+          <>
+            <div className="analytics-nav"><b><span>✳</span> NORTHSTAR</b><span>Overview&nbsp;&nbsp; Accounts&nbsp;&nbsp; Reports</span><span className="analytics-live">● LIVE</span></div>
+            <div className="analytics-title"><div><span className="design-kicker">MONDAY, OCTOBER 12</span><h4>Good morning, Alex.</h4></div><span className="analytics-filter">Last 30 days⌄</span></div>
+            <div className="analytics-metrics"><div><span>TOTAL BALANCE</span><b>$24,680<span>.50</span></b><small>↗ 8.4% this month</small></div><div><span>INCOME</span><b>$5,420</b><small>↗ 4.2%</small></div><div><span>SPENDING</span><b>$2,180</b><small>↓ 2.1%</small></div></div>
+            <div className="analytics-chart"><div><b>Cash flow</b><span>INCOME VS. SPENDING</span></div><div className="analytics-bars">{[38,52,44,67,48,80,59,73,61,91,67,77,54,85].map((height, i) => <i key={i} style={{ height: `${height}%` }} />)}</div><div className="analytics-chart-axis"><span>SEP 15</span><span>SEP 30</span><span>OCT 12</span></div></div>
+          </>
+        )}
+        {sample.kind === "travel" && (
+          <>
+            <div className="travel-nav"><b>wander<span> / collective</span></b><span>DESTINATIONS&nbsp;&nbsp; JOURNAL&nbsp;&nbsp; OUR STORY</span><b className="travel-menu">☰</b></div>
+            <div className="travel-scenery"><div className="travel-sun" /><div className="travel-mountain travel-mountain-back" /><div className="travel-mountain travel-mountain-front" /><div className="travel-water" /><div className="travel-copy"><span>YOUR NEXT CHAPTER</span><h4>Find your<br /><i>somewhere.</i></h4><p>Remarkable places. Unhurried journeys.</p><span className="travel-discover">DISCOVER PLACES&nbsp; ↗</span></div><span className="travel-location">SIARGAO, PHILIPPINES · 09°47′N</span></div>
+            <div className="travel-search"><div><span>WHERE TO?</span><b>Find your destination</b></div><div><span>WHEN?</span><b>Choose dates</b></div><span className="travel-search-btn">SEARCH&nbsp; ↗</span></div>
+          </>
+        )}
+        {sample.kind === "learning" && (
+          <>
+            <div className="learning-nav"><b><span>l.</span> learnloop</b><span>My learning&nbsp;&nbsp; Explore&nbsp;&nbsp; Community</span><span className="learning-avatar">A</span></div>
+            <div className="learning-welcome"><div><span className="design-kicker">YOUR LEARNING SPACE</span><h4>Small steps.<br /><i>Big futures.</i></h4></div><div className="learning-streak"><b>✦ 07</b><span>DAY STREAK</span></div></div>
+            <div className="learning-progress"><div><span>WEEKLY GOAL</span><b>3 of 5 hours</b></div><div className="learning-progress-track"><i /></div><small>You're building a great habit.</small></div>
+            <div className="learning-courses"><div className="learning-course learning-course-purple"><span>01 / DESIGN</span><b>Design<br />foundations</b><i>↗</i></div><div className="learning-course learning-course-peach"><span>02 / CODE</span><b>Build with<br />React</b><i>↗</i></div><div className="learning-course learning-course-green"><span>03 / THINK</span><b>Research<br />methods</b><i>↗</i></div></div>
+          </>
+        )}
+        {sample.kind === "event" && (
+          <>
+            <div className="event-nav"><b>MW<span>®</span></b><span>CONFERENCE&nbsp;&nbsp; SPEAKERS&nbsp;&nbsp; VENUE</span><span className="event-tick">GET TICKETS ↗</span></div>
+            <div className="event-hero"><span className="event-edition">CREATIVE TECH GATHERING / VOL. 04</span><h4>MAKE<br /><i>WAVES</i><span>®</span></h4><div className="event-shape event-shape-one" /><div className="event-shape event-shape-two" /><div className="event-date"><b>24—25</b><span>OCT<br />2026</span></div></div>
+            <div className="event-bottom"><span>MANILA, PHILIPPINES</span><span>IDEAS DON'T STAND STILL.</span><span>↓ EXPLORE THE PROGRAM</span></div>
+          </>
+        )}
+        {sample.kind === "fitness" && (
+          <>
+            <div className="fitness-nav"><b>PULSE<span>.</span></b><span>TODAY&nbsp;&nbsp; TRAINING&nbsp;&nbsp; PROGRESS</span><span className="fitness-avatar">A</span></div>
+            <div className="fitness-greeting"><span className="design-kicker">TUESDAY · LET'S MOVE</span><h4>Your body.<br /><i>Your pace.</i></h4></div>
+            <div className="fitness-dashboard"><div className="fitness-ring"><div><b>78<span>%</span></b><small>DAILY GOAL</small></div></div><div className="fitness-stats"><div><span>STEPS</span><b>8,420</b><i>↗ 12% vs. yesterday</i></div><div><span>ACTIVE MIN</span><b>42 min</b><i>On track</i></div><div><span>RECOVERY</span><b>Good</b><i>Rest well tonight</i></div></div></div>
+            <div className="fitness-tip"><span>✳</span><div><b>Today's nudge</b><small>Ten minutes outside counts, too.</small></div><span>↗</span></div>
+          </>
+        )}
+        {sample.kind === "assistant" && (
+          <>
+            <div className="assistant-nav"><b><span>✳</span> studio ai</b><span>New chat&nbsp;&nbsp; Library&nbsp;&nbsp; Projects</span><span className="assistant-avatar">A</span></div>
+            <div className="assistant-heading"><span className="assistant-orb">✳</span><h4>Room for a better<br /><i>kind of thinking.</i></h4><p>Your ideas, organized into what comes next.</p></div>
+            <div className="assistant-chat"><div className="assistant-user">Help me shape a launch plan for my new idea.</div><div className="assistant-reply"><span>✳</span><div><b>Let's make it clear.</b><p>We can start with the audience, the problem you're solving, and one small test worth running this week.</p></div></div><div className="assistant-prompt"><span>Ask anything...</span><b>↑</b></div></div>
+            <div className="assistant-suggestions"><span>Plan a project</span><span>Explore a topic</span><span>Write a brief</span></div>
+          </>
+        )}
+        {sample.kind === "iot" && (
+          <>
+            <div className="iot-nav"><b><span>◉</span> SIGNAL HOME</b><span>OVERVIEW&nbsp;&nbsp; DEVICES&nbsp;&nbsp; ENERGY</span><span className="iot-status"><i /> ALL SYSTEMS NORMAL</span></div>
+            <div className="iot-intro"><div><span className="design-kicker">YOUR HOME, AT A GLANCE</span><h4>Everything<br />in sync.</h4></div><div className="iot-weather"><b>28°</b><span>PARTLY CLOUDY<br />KALIBO, AKLAN</span></div></div>
+            <div className="iot-cards"><div><span>POWER</span><b>2.4 <small>kW</small></b><i className="iot-power-bars"><i /><i /><i /><i /><i /><i /><i /></i></div><div><span>ROOM TEMP.</span><b>24.8°</b><small>Living room</small></div><div><span>CONNECTED</span><b>08 <small>/ 09</small></b><small>devices online</small></div></div>
+            <div className="iot-footer-bar"><span>ENERGY USE TODAY</span><div>{[21,31,24,52,39,74,48,68,42,89,60,72,47,65,53].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div><b>−12% VS. LAST WEEK</b></div>
+          </>
+        )}
+      </div>
+      <div className="design-preview-footer"><span>{sample.category.toUpperCase()}</span><span>VISUAL STUDY / {sample.number}</span></div>
+    </div>
+  );
+}
+
 function App() {
   const [filter, setFilter] = useState<Filter>("All work");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDesignIndex, setActiveDesignIndex] = useState(0);
+  const activeDesign = designSamples[activeDesignIndex];
+  const moveDesign = (direction: -1 | 1) => {
+    setActiveDesignIndex((current) => (current + direction + designSamples.length) % designSamples.length);
+  };
 
   const visibleProjects = filter === "All work"
     ? projects
@@ -233,8 +437,9 @@ function App() {
 
           <nav id="primary-navigation" className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
             <a href="#work" onClick={closeMenu}>Selected work <span>01</span></a>
-            <a href="#approach" onClick={closeMenu}>Approach <span>02</span></a>
-            <a href="#about" onClick={closeMenu}>About <span>03</span></a>
+            <a href="#design-lab" onClick={closeMenu}>Design lab <span>02</span></a>
+            <a href="#approach" onClick={closeMenu}>Approach <span>03</span></a>
+            <a href="#about" onClick={closeMenu}>About <span>04</span></a>
             <a className="nav-contact" href="#contact" onClick={closeMenu}>Let's connect <ArrowUpRight size={15} /></a>
           </nav>
         </div>
@@ -330,6 +535,59 @@ function App() {
             </div>
             <div className="work-note"><Sparkles size={15} /><span>Live project cards use website screenshot previews. Conceptual artwork is labeled where a live website is not available; source links are included where public repositories are confirmed.</span></div>
             <div className="all-projects-cta"><span>There’s always something new on the workbench.</span><a href="https://github.com/ace866678?tab=repositories" target="_blank" rel="noreferrer">Explore GitHub repositories <ArrowUpRight size={16} /></a></div>
+          </div>
+        </section>
+
+
+        <section className="design-lab-section section-pad" id="design-lab">
+          <div className="page-shell">
+            <div className="section-heading design-lab-heading">
+              <div>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE DESIGN LAB / 10 CONCEPTS</div>
+                <h2>Different ideas.<br /><span>Different interfaces.</span></h2>
+              </div>
+              <p className="section-intro">A collection of visual UI/UX explorations—from product dashboards to editorial storefronts. These are design samples, not ten separate live websites.</p>
+            </div>
+
+            <div className="design-showcase">
+              <div className="design-stage">
+                <DesignPreview sample={activeDesign} />
+              </div>
+              <div className="design-details">
+                <div className="design-details-top"><span>DESIGN SAMPLE</span><span>{activeDesign.number} <i>/</i> 10</span></div>
+                <span className="design-category"><Palette size={13} /> {activeDesign.category}</span>
+                <h3>{activeDesign.name}</h3>
+                <p>{activeDesign.description}</p>
+                <div className="design-tags">
+                  {activeDesign.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+                <div className="design-details-bottom">
+                  <span className="design-concept-note"><i /> Concept mockup · not a live product</span>
+                  <div className="design-arrow-controls">
+                    <button type="button" onClick={() => moveDesign(-1)} aria-label="Previous design sample"><ChevronLeft size={18} /></button>
+                    <button type="button" onClick={() => moveDesign(1)} aria-label="Next design sample"><ChevronRight size={18} /></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="design-sample-picker" aria-label="Choose a design sample">
+              {designSamples.map((sample, index) => (
+                <button
+                  key={sample.number}
+                  type="button"
+                  className={index === activeDesignIndex ? "design-picker-item is-active" : "design-picker-item"}
+                  aria-pressed={index === activeDesignIndex}
+                  onClick={() => setActiveDesignIndex(index)}
+                >
+                  <span className={`design-picker-swatch design-picker-swatch-${sample.kind}`} />
+                  <span className="design-picker-number">{sample.number}</span>
+                  <span className="design-picker-name">{sample.name}</span>
+                  <ArrowUpRight size={13} />
+                </button>
+              ))}
+            </div>
+            <div className="design-lab-note"><Sparkles size={15} /><span>All ten panels are illustrative interface studies created for this portfolio. They are not screenshots, client work, or separate deployed products.</span></div>
           </div>
         </section>
 
