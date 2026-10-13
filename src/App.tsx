@@ -8,10 +8,10 @@ import {
   Check,
   Code2,
   ExternalLink,
-  Github,
   Layers3,
   Menu,
   RadioTower,
+  Search,
   Sparkles,
   Terminal,
   Workflow,
@@ -234,7 +234,7 @@ function App() {
           </div>
 
           <div className="hero-art" aria-label="Visual overview of web, research, and systems work">
-            <div className="hero-art-top"><span>FIELD NOTES <span className="muted-slash">/</span> 001</span><span>KAEL BUILDS®</span></div>
+            <div className="hero-art-top"><span>FIELD NOTES <span className="muted-slash">/</span> 001</span><span>KAEL BUILDS</span></div>
             <div className="hero-orbit hero-orbit-one" />
             <div className="hero-orbit hero-orbit-two" />
             <div className="hero-core"><span>K<span>.</span></span><small>IDEAS → IMPACT</small></div>
@@ -319,7 +319,7 @@ function App() {
             <div className="process-list">
               <div className="process-step">
                 <span className="process-number">01</span>
-                <div className="process-icon"><SearchIcon /></div>
+                <div className="process-icon"><Search size={19} /></div>
                 <div className="process-text"><h3>Understand the problem</h3><p>Start with the people, constraints, and real need—not the technology for its own sake.</p></div>
                 <Check className="process-check" size={17} />
               </div>
@@ -393,8 +393,5 @@ function App() {
   );
 }
 
-function SearchIcon() {
-  return <BookOpen size={19} />;
-}
 
 export default App;
