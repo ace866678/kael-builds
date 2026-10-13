@@ -1,4 +1,5 @@
 name: Extract uploaded portfolio images
+# Filename-based image import for the portfolio
 
 on:
   push:
