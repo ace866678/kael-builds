@@ -56,7 +56,7 @@ function buildGmailComposeUrl(subject: string, service: string) {
     "Approximate budget (PHP):",
     "",
     "Please share the proposed scope, quote, and payment steps.",
-  ].join("\\n");
+  ].join("\n");
   return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
