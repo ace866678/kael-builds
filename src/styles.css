@@ -1377,3 +1377,51 @@ body::before {
 @media (max-width: 620px) {
   .project-preview-secondary { right: 9px; bottom: 9px; width: 42%; border-width: 2px; border-radius: 6px; }
 }
+
+
+/* Visibility guard: keep the actual concept artwork visible on mobile browsers.
+   The showcase must never collapse to the description-only card. */
+.design-showcase > .design-stage {
+  display: block !important;
+  visibility: visible !important;
+  min-height: 450px;
+  width: auto;
+}
+.design-showcase > .design-stage > .design-preview {
+  display: flex !important;
+  visibility: visible !important;
+  width: 100%;
+  min-height: 410px;
+  opacity: 1;
+}
+.design-preview .design-browser,
+.design-preview .design-screen,
+.design-preview .design-preview-footer {
+  visibility: visible;
+}
+.design-preview .design-screen {
+  flex: 1 1 auto;
+}
+.design-preview .design-scene-image {
+  display: block;
+  object-fit: cover;
+}
+@media (max-width: 850px) {
+  .design-showcase > .design-stage {
+    min-height: 420px;
+    border-right: 0;
+    border-bottom: 1px solid #dde2d9;
+  }
+  .design-showcase > .design-stage > .design-preview {
+    min-height: 390px;
+  }
+}
+@media (max-width: 620px) {
+  .design-showcase > .design-stage {
+    padding: 9px;
+    min-height: 400px;
+  }
+  .design-showcase > .design-stage > .design-preview {
+    min-height: 380px;
+  }
+}
