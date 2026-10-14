@@ -1425,3 +1425,47 @@ body::before {
     min-height: 380px;
   }
 }
+
+
+/* Subtle motion for the Kael Builds identity seal */
+.about-stamp { isolation: isolate; }
+.stamp-ring { animation: stamp-orbit 24s linear infinite; transform-origin: center; }
+.stamp-center { animation: stamp-hover 3.4s ease-in-out infinite; will-change: transform; }
+@keyframes stamp-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes stamp-hover {
+  0%, 100% { transform: translateY(0) rotate(-7deg); }
+  50% { transform: translateY(-9px) rotate(-4deg); }
+}
+
+/* Small, responsive celebration website previews */
+.celebration-samples { margin: 22px 0 8px; padding-top: 16px; border-top: 1px solid #dfe5d8; }
+.celebration-samples-heading { display:flex; justify-content:space-between; gap:8px; margin-bottom:11px; color:#718071; font: 8px var(--mono); letter-spacing:.7px; }
+.celebration-sample-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.celebration-sample { position:relative; isolation:isolate; display:flex; min-width:0; min-height:164px; overflow:hidden; flex-direction:column; justify-content:center; align-items:flex-start; padding:12px 10px; border:1px solid rgba(25,35,32,.1); border-radius:10px; text-decoration:none; transition:transform .2s ease, box-shadow .2s ease; }
+.celebration-sample:hover,.celebration-sample:focus-visible { transform:translateY(-3px); box-shadow:0 9px 20px rgba(16,24,32,.12); }
+.celebration-sample-kicker { position:relative; z-index:1; font:7px var(--mono); letter-spacing:.35px; }
+.celebration-sample strong { position:relative; z-index:1; margin:8px 0 4px; font:800 clamp(17px,2.2vw,25px)/.98 var(--sans); letter-spacing:-1px; }
+.celebration-sample strong i { font-family:Georgia,serif; font-weight:500; }
+.celebration-sample-name { position:relative; z-index:1; font-size:8px; opacity:.8; }
+.celebration-sample-action { position:relative; z-index:1; margin-top:13px; font:7px var(--mono); letter-spacing:.3px; }
+.celebration-sample-birthday { color:#fff9ed; background:radial-gradient(circle at 88% 10%,#f7c96b 0 8%,transparent 9%),linear-gradient(145deg,#783b68,#c86e78 58%,#edb18c); }
+.celebration-sample-birthday strong { font-family:Georgia,serif; font-weight:600; font-size:clamp(19px,2.6vw,28px); }
+.celebration-sample-confetti { position:absolute; right:5px; top:10px; color:#fff0b5; font-size:13px; opacity:.9; }
+.celebration-sample-love { color:#fff0e9; background:radial-gradient(circle at 90% 20%,rgba(239,168,164,.38),transparent 28%),linear-gradient(145deg,#34212d,#744653); }
+.celebration-sample-heart { position:absolute; right:12px; top:9px; color:#f7c3bf; font:35px Georgia,serif; }
+.celebration-sample-party { color:#202c27; background:radial-gradient(circle at 90% 10%,#e2ef9a 0 12%,transparent 13%),linear-gradient(145deg,#f7f4df,#d9e7c7); }
+.celebration-sample-party .celebration-sample-confetti { color:#748a47; }
+.celebration-samples-note { margin:10px 0 0; color:#6f7971; font-size:10px; line-height:1.6; }
+@media (max-width: 420px) {
+  .celebration-sample-grid { grid-template-columns:1fr; }
+  .celebration-sample { min-height:150px; padding:16px; }
+  .celebration-sample strong { font-size:28px; }
+  .celebration-sample-kicker,.celebration-sample-action { font-size:8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp-ring,.stamp-center { animation:none !important; }
+  .celebration-sample { transition:none; }
+}
