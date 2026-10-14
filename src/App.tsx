@@ -598,8 +598,8 @@ function App() {
         <section className="hero page-shell" id="home">
           <div className="hero-copy">
             <div className="eyebrow"><span className="eyebrow-mark" /> DEVELOPER <span className="eyebrow-divider">/</span> BUILDER <span className="eyebrow-divider">/</span> RESEARCHER</div>
-            <h1>I build digital tools for <span className="headline-highlight">real-world problems.</span></h1>
-            <p className="hero-description">From web applications and research workflows to connected-system prototypes, I turn ideas into practical experiences—and document what I learn along the way.</p>
+            <h1>I build websites and tools for <span className="headline-highlight">specific problems.</span></h1>
+            <p className="hero-description">I work on web apps, research tools, and connected-system prototypes. I share what each project can do, what is still unfinished, and what I learn while building it.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <ArrowDownRight size={17} /></a>
               <a className="button button-secondary" href="#services">Hire me <ArrowUpRight size={16} /></a>
@@ -628,7 +628,7 @@ function App() {
                 <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> A SELECTION OF MY WORK</div>
                 <h2>Small steps.<br /><span>Useful things.</span></h2>
               </div>
-              <p className="section-intro">I like projects that connect software to a real need. Here's what I'm exploring, building, and learning from.</p>
+              <p className="section-intro">These are projects I've built or explored, with their current status and the tools behind them.</p>
             </div>
 
             <div className="work-toolbar">
@@ -688,14 +688,14 @@ function App() {
                 <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> SERVICES / AVAILABLE FOR PROJECTS</div>
                 <h2>Have an idea?<br /><span>Let's build it.</span></h2>
               </div>
-              <p className="section-intro">Practical websites, product interfaces, and custom tools for people who want to get something useful into the world.</p>
+              <p className="section-intro">I make websites, interfaces, and custom tools. Tell me what you need, and we can agree on the scope before work starts.</p>
             </div>
 
             <div className="service-grid">
               <article className="service-card service-card-featured">
                 <div className="service-card-top"><span>01 / CELEBRATION SURPRISE</span><span className="service-icon"><Sparkles size={19} /></span></div>
                 <h3>Surprise website</h3>
-                <p className="service-description">A little website made for a big feeling—birthdays, anniversaries, monthsaries, proposals, graduations, or a just-because surprise.</p>
+                <p className="service-description">A personal page for a birthday, anniversary, monthsary, proposal, graduation, or an unexpected note for someone.</p>
                 <div className="service-price"><span>STARTING AT</span><strong>₱50</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> One-page mini celebration site</li>
@@ -724,7 +724,7 @@ function App() {
               <article className="service-card">
                 <div className="service-card-top"><span>02 / WEB DESIGN + BUILD</span><span className="service-icon"><Code2 size={19} /></span></div>
                 <h3>Landing page</h3>
-                <p className="service-description">A focused page for a personal brand, product launch, event, or small business.</p>
+                <p className="service-description">One page for a portfolio, product, event, or small business, with the key information and contact link in one place.</p>
                 <div className="service-price"><span>STARTING AT</span><strong>₱500+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> One responsive page</li>
@@ -737,7 +737,7 @@ function App() {
               <article className="service-card">
                 <div className="service-card-top"><span>02 / BUSINESS WEBSITE</span><span className="service-icon"><Layers3 size={19} /></span></div>
                 <h3>Business website</h3>
-                <p className="service-description">A polished multi-page website that explains what you do and helps customers take the next step.</p>
+                <p className="service-description">A multi-page site for your services, prices, work, and contact details.</p>
                 <div className="service-price"><span>STARTING AT</span><strong>₱2,500+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> Up to five core pages</li>
@@ -750,7 +750,7 @@ function App() {
               <article className="service-card service-card-featured">
                 <div className="service-card-top"><span>03 / CUSTOM DEVELOPMENT</span><span className="service-icon"><Workflow size={19} /></span></div>
                 <h3>Web app or dashboard</h3>
-                <p className="service-description">Purpose-built digital tools for workflows, records, dashboards, accounts, or team collaboration.</p>
+                <p className="service-description">A custom web app for a specific task, such as managing records, tracking work, or sharing updates with a team.</p>
                 <div className="service-price"><span>STARTING AT</span><strong>₱5,000+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> Features scoped to your workflow</li>
@@ -763,7 +763,7 @@ function App() {
               <article className="service-card">
                 <div className="service-card-top"><span>04 / UI + UX</span><span className="service-icon"><Palette size={19} /></span></div>
                 <h3>Interface design</h3>
-                <p className="service-description">Turn an early idea into a clear user flow and a prototype you can review before development.</p>
+                <p className="service-description">Map out the screens and user flow, then make a prototype you can click through before development.</p>
                 <div className="service-price"><span>STARTING AT</span><strong>₱300+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> User flow and screen structure</li>
@@ -793,7 +793,7 @@ function App() {
                 <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE DESIGN LAB / 10 CONCEPTS</div>
                 <h2>Different ideas.<br /><span>Different interfaces.</span></h2>
               </div>
-              <p className="section-intro">A collection of visual UI/UX explorations—from product dashboards to editorial storefronts. These are design samples, not ten separate live websites.</p>
+              <p className="section-intro">Ten interface concepts exploring different layouts and visual directions. These are mockups, not live products or client projects.</p>
             </div>
 
             <div className="design-showcase">
@@ -842,32 +842,32 @@ function App() {
             <div className="approach-heading">
               <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE PROCESS</div>
               <h2>Curiosity is the start.<br /><span>Making is the method.</span></h2>
-              <p>Not every idea starts with a clear answer. I work to make the problem understandable, build something useful, and improve it with evidence.</p>
+              <p>I start by figuring out what needs to work, build a small version, and test it. If something does not hold up, I change it.</p>
               <a className="text-link approach-link" href="#about">A little more about me <ArrowRight size={16} /></a>
             </div>
             <div className="process-list">
               <div className="process-step">
                 <span className="process-number">01</span>
                 <div className="process-icon"><Search size={19} /></div>
-                <div className="process-text"><h3>Understand the problem</h3><p>Start with the people, constraints, and real need—not the technology for its own sake.</p></div>
+                <div className="process-text"><h3>Understand the problem</h3><p>Clarify who will use it, what they need, and what the project can realistically do.</p></div>
                 <Check className="process-check" size={17} />
               </div>
               <div className="process-step">
                 <span className="process-number">02</span>
                 <div className="process-icon"><Layers3 size={19} /></div>
-                <div className="process-text"><h3>Map the moving pieces</h3><p>Turn fuzzy requirements into flows, components, and a plan that can be tested.</p></div>
+                <div className="process-text"><h3>Map the moving pieces</h3><p>Break the request into screens, steps, and features that can be checked.</p></div>
                 <Check className="process-check" size={17} />
               </div>
               <div className="process-step">
                 <span className="process-number">03</span>
                 <div className="process-icon"><Code2 size={19} /></div>
-                <div className="process-text"><h3>Build a useful version</h3><p>Choose the simplest tools that can turn the idea into a working experience.</p></div>
+                <div className="process-text"><h3>Build a useful version</h3><p>Build the smallest version that does the job, using tools that fit the project.</p></div>
                 <Check className="process-check" size={17} />
               </div>
               <div className="process-step">
                 <span className="process-number">04</span>
                 <div className="process-icon"><Wrench size={19} /></div>
-                <div className="process-text"><h3>Test, learn, refine</h3><p>Make the limits visible, document lessons, and use feedback to decide what comes next.</p></div>
+                <div className="process-text"><h3>Test, learn, refine</h3><p>Test the result, note what fails or feels confusing, and fix the important parts first.</p></div>
                 <Check className="process-check" size={17} />
               </div>
             </div>
@@ -880,9 +880,9 @@ function App() {
             <div className="about-copy">
               <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> A NOTE ABOUT ME</div>
               <h2>A builder who learns<br />by <span>making.</span></h2>
-              <p className="about-lead">I enjoy turning ideas into working software and exploring how technology can solve practical problems.</p>
-              <p>My work spans web applications, research projects, and connected-system concepts. I care about clear interfaces, understanding how the pieces fit together, and being honest about what still needs improvement.</p>
-              <p>This portfolio is a living record of that process: the things I build, the questions I follow, and the lessons I carry into the next project.</p>
+              <p className="about-lead">I like making things work, figuring out why they do not, and learning enough to improve them.</p>
+              <p>I work across web apps, research projects, and connected-system concepts. Some projects are live; others are still experiments. I try to show that difference clearly.</p>
+              <p>This site collects the projects I've worked on so far, including unfinished work and questions I'm still figuring out.</p>
               <div className="skills-block">
                 <div className="skills-title"><span>TOOLS & TOPICS</span><span>WHAT I'M EXPLORING</span></div>
                 <div className="skills-tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Firebase</span><span>Deployment workflows</span><span>Vercel</span><span>IoT research</span><span>UI systems</span></div>
@@ -896,13 +896,13 @@ function App() {
             <div className="contact-left">
               <div className="eyebrow"><span className="eyebrow-mark" /> LET'S WORK TOGETHER</div>
               <h2>Ready to build<br /><span>something useful?</span></h2>
-              <p>Share what you need, your target timeline, and an approximate budget. I'll review the scope and use it to prepare a quote.</p>
+              <p>Send me a short description of the project, when you need it, and your budget range. I'll reply with what I can deliver and a quote.</p>
               <a className="button button-light" href={buildGmailComposeUrl("Service inquiry — Project quote", "Project quote")} target="_blank" rel="noreferrer">Request a quote <ArrowUpRight size={17} /></a>
             </div>
             <div className="contact-card">
               <div className="contact-card-top"><span>PROJECT INQUIRY</span><span className="contact-pulse"><i /> OPEN</span></div>
               <div className="contact-monogram">K<span>.</span></div>
-              <p>Tell me what you need, your timeline, and approximate budget. I'll reply with a proposed scope and quote.</p>
+              <p>Tell me what you need and when you need it. I'll get back to you with the next steps and a quote.</p>
               <a href={buildGmailComposeUrl("Service inquiry — General project", "General project inquiry")} target="_blank" rel="noreferrer">Email me through Gmail <ExternalLink size={15} /></a>
               <div className="contact-card-bottom"><span>GCASH OR PAYPAL</span><ArrowUpRight size={16} /></div>
               <p className="contact-privacy-note">Payment instructions are shared privately after the scope and quote are agreed. Never send a payment before confirming the details.</p>
