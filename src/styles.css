@@ -120,7 +120,7 @@ img, svg { display: block; }
 .filter-button:hover { border-color: var(--line); color: var(--ink); }
 .filter-button.is-active { background: var(--ink); color: var(--white); }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
-.project-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid #e0e4dd; border-radius: 15px; background: var(--white); transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.project-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid #e0e4dd; border-radius: 4px 15px 4px 15px; background: var(--white); transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
 .project-card:hover { transform: translateY(-3px); border-color: #c3ccb9; box-shadow: 0 14px 32px rgba(16,24,32,.055); }
 .project-card-featured { grid-column: span 2; display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); }
 .project-art-wrap { position: relative; min-width: 0; overflow: hidden; min-height: 250px; background: #e9eee4; }
@@ -156,7 +156,7 @@ a.text-link:hover svg { transform: translate(2px, -2px); }
 .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .service-card { display: flex; min-width: 0; flex-direction: column; padding: 25px 27px 0; border: 1px solid #dce2d7; border-radius: 14px; background: rgba(255,255,255,.88); transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease; }
 .service-card:hover { transform: translateY(-3px); border-color: #bfcba9; box-shadow: 0 14px 32px rgba(16,24,32,.055); }
-.service-card-featured { border-color: #c3d19c; background: linear-gradient(145deg, #fbfcf7, #e9efd9); }
+.service-card-featured { border-color: #c3d19c; background: #eef2e4; }
 .service-card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #78857b; font: 8px var(--mono); letter-spacing: .75px; }
 .service-icon { display: grid; place-items: center; width: 39px; height: 39px; flex: 0 0 39px; border: 1px solid #e0e6d9; border-radius: 11px; background: #f2f5ed; color: #54664a; }
 .service-card h3 { margin: 22px 0 8px; font-size: clamp(23px, 2.6vw, 30px); letter-spacing: -.065em; line-height: 1.12; }
@@ -318,7 +318,7 @@ a.text-link:hover svg { transform: translate(2px, -2px); }
 .contact-left > p { max-width: 405px; margin: 0; color: #bdc7c3; font-size: 13px; line-height: 1.9; }
 .button-light { margin-top: 26px; background: var(--lime); color: var(--ink); }
 .button-light:hover { background: #e2ff88; }
-.contact-card { position: relative; padding: 21px 22px 0; overflow: hidden; border: 1px solid #34444b; border-radius: 15px; background: linear-gradient(145deg, #1a282f, #131e24); }
+.contact-card { position: relative; padding: 21px 22px 0; overflow: hidden; border: 1px solid #34444b; border-radius: 15px; background: #17232a; }
 .contact-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #a3b0ab; font: 8px var(--mono); letter-spacing: .9px; }
 .contact-pulse { display: flex; align-items: center; gap: 7px; color: var(--lime); font-size: 7px; }
 .contact-pulse i { width: 5px; height: 5px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(213,243,106,.1); }
