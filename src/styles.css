@@ -1469,3 +1469,37 @@ body::before {
   .stamp-ring,.stamp-center { animation:none !important; }
   .celebration-sample { transition:none; }
 }
+
+
+/* Standalone live celebration demos, hosted on the Kael Builds domain */
+.celebration-live-page { --celebrate-ink:#2b2630; min-height:100svh; display:flex; flex-direction:column; align-items:center; padding:clamp(18px,5vw,48px); color:var(--celebrate-ink); overflow:hidden; }
+.celebration-live-brand { align-self:flex-start; display:flex; align-items:center; gap:9px; color:inherit; text-decoration:none; font-weight:750; letter-spacing:-.6px; }
+.celebration-live-brand > span { display:grid; place-items:center; width:36px; height:36px; border-radius:12px; background:#111a20; color:#c5ed60; font-size:22px; }
+.celebration-live-brand i { color:#a7c54d; font-style:normal; }
+.celebration-live-card { position:relative; isolation:isolate; display:flex; flex:1; width:min(100%,720px); min-height:570px; flex-direction:column; align-items:center; justify-content:center; margin:clamp(28px,7vh,72px) 0 24px; padding:clamp(30px,8vw,78px) 22px; overflow:hidden; border:1px solid rgba(55,44,47,.12); border-radius:clamp(18px,4vw,32px); text-align:center; box-shadow:0 25px 80px rgba(40,30,35,.09); }
+.celebration-live-symbol { margin-bottom:22px; font-size:48px; animation:celebration-symbol-float 3s ease-in-out infinite; }
+.celebration-live-eyebrow { font:10px var(--mono); letter-spacing:2px; }
+.celebration-live-card h1 { margin:22px 0 12px; font-size:clamp(54px,12vw,100px); line-height:.92; letter-spacing:-.075em; }
+.celebration-live-card h1 i { font-family:Georgia,serif; font-weight:500; }
+.celebration-live-note { font-size:clamp(14px,2.5vw,18px); opacity:.78; }
+.celebration-live-divider { display:flex; align-items:center; gap:16px; width:min(240px,70%); margin:28px auto 20px; opacity:.7; }
+.celebration-live-divider:before,.celebration-live-divider:after { content:""; height:1px; flex:1; background:currentColor; opacity:.3; }
+.celebration-live-message { max-width:440px; font-family:Georgia,serif; font-size:clamp(17px,3vw,23px); line-height:1.7; }
+.celebration-live-signoff { margin-top:32px; font:9px var(--mono); letter-spacing:1.6px; opacity:.68; }
+.celebration-live-footer { display:flex; width:min(100%,720px); justify-content:space-between; align-items:center; gap:14px; color:#747b72; font:9px var(--mono); letter-spacing:.5px; }
+.celebration-live-footer a { color:inherit; font-size:11px; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:4px; }
+.celebration-live-birthday { background:#f9e7e2; }
+.celebration-live-birthday .celebration-live-card { background:radial-gradient(circle at 12% 12%,rgba(255,255,255,.8),transparent 27%),linear-gradient(150deg,#fff7ed,#f4d5d2 62%,#e9b4a4); color:#693d4d; }
+.celebration-live-birthday .celebration-live-card:before { content:"✦  ✧       ✦       ✧  ✦"; position:absolute; z-index:-1; top:12%; right:-4%; color:#c87d83; font-size:clamp(30px,8vw,70px); opacity:.35; transform:rotate(-14deg); }
+.celebration-live-love { background:#e8d9d9; }
+.celebration-live-love .celebration-live-card { background:radial-gradient(circle at 90% 12%,rgba(224,167,164,.18),transparent 30%),linear-gradient(145deg,#35232e,#694450); color:#fff0e9; }
+.celebration-live-love .celebration-live-symbol { color:#f0b8b7; }
+.celebration-live-party { background:#e6eddb; }
+.celebration-live-party .celebration-live-card { background:radial-gradient(circle at 88% 8%,#d9e89c 0 9%,transparent 9.5%),radial-gradient(circle at 8% 90%,rgba(191,216,162,.5),transparent 30%),#faf8e9; color:#26362c; }
+@keyframes celebration-symbol-float { 0%,100% { transform:translateY(0) rotate(-5deg); } 50% { transform:translateY(-8px) rotate(5deg); } }
+@media (max-width:520px) {
+  .celebration-live-page { padding:16px; }
+  .celebration-live-card { min-height: min(68svh,620px); margin-top:36px; }
+  .celebration-live-footer { flex-direction:column; align-items:flex-start; padding-bottom:10px; line-height:1.6; }
+}
+@media (prefers-reduced-motion:reduce) { .celebration-live-symbol { animation:none; } }
