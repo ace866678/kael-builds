@@ -495,7 +495,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDesignIndex, setActiveDesignIndex] = useState(0);
   const activeDesign = designSamples[activeDesignIndex];
-  const surpriseRoute = typeof window !== "undefined" ? window.location.pathname.match(/^\\/surprise\\/(birthday|anniversary|celebration)\\/?$/)?.[1] : undefined;
+  const surpriseRoute = typeof window !== "undefined" ? window.location.pathname.split("/").filter(Boolean)[1] === "surprise" ? window.location.pathname.split("/").filter(Boolean)[2] : undefined : undefined;
   const moveDesign = (direction: -1 | 1) => {
     setActiveDesignIndex((current) => (current + direction + designSamples.length) % designSamples.length);
   };
