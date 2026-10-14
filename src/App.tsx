@@ -668,11 +668,25 @@ function App() {
             </div>
 
             <div className="service-grid">
+              <article className="service-card service-card-featured">
+                <div className="service-card-top"><span>01 / CELEBRATION SURPRISE</span><span className="service-icon"><Sparkles size={19} /></span></div>
+                <h3>Surprise website</h3>
+                <p className="service-description">A little website made for a big feeling—birthdays, anniversaries, monthsaries, proposals, graduations, or a just-because surprise.</p>
+                <div className="service-price"><span>STARTING AT</span><strong>₱50</strong></div>
+                <ul className="service-includes">
+                  <li><Check size={14} /> One-page mini celebration site</li>
+                  <li><Check size={14} /> Personalized message and recipient's name</li>
+                  <li><Check size={14} /> Sweet visual theme and shareable link</li>
+                </ul>
+                <p className="service-description">More personal touches—photos, music, animations, countdowns, or interactive surprises—can be added with a separate quote.</p>
+                <a className="service-cta" href={buildGmailComposeUrl("Surprise website — Birthday / anniversary / celebration", "₱50 celebration surprise website")}>Create a surprise <ArrowUpRight size={16} /></a>
+              </article>
+
               <article className="service-card">
-                <div className="service-card-top"><span>01 / WEB DESIGN + BUILD</span><span className="service-icon"><Code2 size={19} /></span></div>
+                <div className="service-card-top"><span>02 / WEB DESIGN + BUILD</span><span className="service-icon"><Code2 size={19} /></span></div>
                 <h3>Landing page</h3>
                 <p className="service-description">A focused page for a personal brand, product launch, event, or small business.</p>
-                <div className="service-price"><span>STARTING AT</span><strong>₱5,000+</strong></div>
+                <div className="service-price"><span>STARTING AT</span><strong>₱500+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> One responsive page</li>
                   <li><Check size={14} /> Clear calls to action</li>
@@ -685,7 +699,7 @@ function App() {
                 <div className="service-card-top"><span>02 / BUSINESS WEBSITE</span><span className="service-icon"><Layers3 size={19} /></span></div>
                 <h3>Business website</h3>
                 <p className="service-description">A polished multi-page website that explains what you do and helps customers take the next step.</p>
-                <div className="service-price"><span>STARTING AT</span><strong>₱12,000+</strong></div>
+                <div className="service-price"><span>STARTING AT</span><strong>₱2,500+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> Up to five core pages</li>
                   <li><Check size={14} /> Mobile-friendly layouts</li>
@@ -698,7 +712,7 @@ function App() {
                 <div className="service-card-top"><span>03 / CUSTOM DEVELOPMENT</span><span className="service-icon"><Workflow size={19} /></span></div>
                 <h3>Web app or dashboard</h3>
                 <p className="service-description">Purpose-built digital tools for workflows, records, dashboards, accounts, or team collaboration.</p>
-                <div className="service-price"><span>STARTING AT</span><strong>₱20,000+</strong></div>
+                <div className="service-price"><span>STARTING AT</span><strong>₱5,000+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> Features scoped to your workflow</li>
                   <li><Check size={14} /> API, database, or sign-in integration quoted by scope</li>
@@ -711,7 +725,7 @@ function App() {
                 <div className="service-card-top"><span>04 / UI + UX</span><span className="service-icon"><Palette size={19} /></span></div>
                 <h3>Interface design</h3>
                 <p className="service-description">Turn an early idea into a clear user flow and a prototype you can review before development.</p>
-                <div className="service-price"><span>STARTING AT</span><strong>₱3,500+</strong></div>
+                <div className="service-price"><span>STARTING AT</span><strong>₱300+</strong></div>
                 <ul className="service-includes">
                   <li><Check size={14} /> User flow and screen structure</li>
                   <li><Check size={14} /> Up to five key screens</li>
@@ -722,14 +736,14 @@ function App() {
             </div>
 
             <div className="service-support-row">
-              <div><span className="service-support-label">ONGOING SUPPORT</span><strong>Site updates & maintenance from ₱1,500/month</strong><p>Small improvements and routine upkeep can be quoted as a monthly arrangement.</p></div>
+              <div><span className="service-support-label">ONGOING SUPPORT</span><strong>Site updates & maintenance from ₱500/month</strong><p>Small improvements and routine upkeep can be quoted as a monthly arrangement.</p></div>
               <a className="text-link" href={buildGmailComposeUrl("Service inquiry — Website maintenance", "Website maintenance / improvements")}>Ask about maintenance <ArrowUpRight size={16} /></a>
             </div>
             <div className="service-payment-row">
               <div><span className="service-support-label">PAYMENT OPTIONS</span><strong>GCash or PayPal</strong><p>No credit card or debit card is required to start an inquiry. After scope and price are agreed, I'll share payment instructions privately.</p></div>
               <span className="service-payment-badge">PRIVATE PAYMENT DETAILS</span>
             </div>
-            <p className="service-pricing-note">Prices are starting estimates in PHP, not fixed quotes. Final scope is agreed before work begins. Domain registration, paid hosting, premium tools, payment-provider fees, and third-party subscriptions are separate unless stated in the quote.</p>
+            <p className="service-pricing-note">Affordable starter prices are for clearly limited scopes: ₱50 covers a simple celebration template with a name and message, not a fully custom animated website. Larger features and revisions are quoted separately so the time and skill involved are still valued. Prices are estimates in PHP; agree on scope before work begins. Domain registration, paid hosting, premium tools, payment-provider fees, and third-party subscriptions are separate unless stated in the quote.</p>
           </div>
         </section>
 
