@@ -467,17 +467,41 @@ function DesignPreview({ sample }: { sample: DesignSample }) {
   );
 }
 
+function CelebrationPreview({ kind }: { kind: "birthday" | "anniversary" | "celebration" }) {
+  const details = {
+    birthday: { eyebrow: "A LITTLE MORE MAGIC", title: <>Happy<br />Birthday!</>, note: "Today is all about you.", className: "celebration-live-birthday", symbol: "✦", message: "May your day be full of laughter, beautiful surprises, and little moments worth remembering." },
+    anniversary: { eyebrow: "EVERY MOMENT, US", title: <>Our <i>Story.</i></>, note: "One love, many memories.", className: "celebration-live-love", symbol: "♡", message: "If I could choose again, in every lifetime and every version of this story, I'd still choose you." },
+    celebration: { eyebrow: "TODAY IS YOURS", title: <>Let's<br />Celebrate!</>, note: "A page full of happy.", className: "celebration-live-party", symbol: "✷", message: "Here's to your next chapter, new memories, and all the good things waiting just around the corner." },
+  }[kind];
+  return (
+    <main className={`celebration-live-page ${details.className}`}>
+      <a className="celebration-live-brand" href="/"><span>K.</span> kael builds <i>/</i></a>
+      <div className="celebration-live-card">
+        <span className="celebration-live-symbol" aria-hidden="true">{details.symbol}</span>
+        <span className="celebration-live-eyebrow">{details.eyebrow}</span>
+        <h1>{details.title}</h1>
+        <p className="celebration-live-note">{details.note}</p>
+        <div className="celebration-live-divider"><span>✦</span></div>
+        <p className="celebration-live-message">{details.message}</p>
+        <div className="celebration-live-signoff">MADE WITH LOVE, JUST FOR YOU</div>
+      </div>
+      <footer className="celebration-live-footer"><span>DEMO DESIGN · PERSONALIZE IT YOUR WAY</span><a href={buildGmailComposeUrl(`Personalized ${kind} surprise website — ₱50 starter`, `Please make a personalized ${kind} surprise website based on the live sample at ${PORTFOLIO_URL}/surprise/${kind}. Recipient name and message to be provided.`)}>Make your own · from ₱50 ↗</a></footer>
+    </main>
+  );
+}
+
 function App() {
   const [filter, setFilter] = useState<Filter>("All work");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDesignIndex, setActiveDesignIndex] = useState(0);
   const activeDesign = designSamples[activeDesignIndex];
+  const surpriseRoute = typeof window !== "undefined" ? window.location.pathname.match(/^\\/surprise\\/(birthday|anniversary|celebration)\\/?$/)?.[1] : undefined;
   const moveDesign = (direction: -1 | 1) => {
     setActiveDesignIndex((current) => (current + direction + designSamples.length) % designSamples.length);
   };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || surpriseRoute) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion || !("IntersectionObserver" in window)) return;
@@ -682,13 +706,13 @@ function App() {
                 <div className="celebration-samples" aria-label="Celebration website sample designs">
                   <div className="celebration-samples-heading"><span>CHOOSE A STYLE</span><span>LIVE PREVIEW CONCEPTS</span></div>
                   <div className="celebration-sample-grid">
-                    <a className="celebration-sample celebration-sample-birthday" href={buildGmailComposeUrl("Birthday surprise website — ₱50 starter", "Birthday surprise website — choose Birthday Glow sample")} aria-label="Order Birthday Glow sample">
+                    <a className="celebration-sample celebration-sample-birthday" href="/surprise/birthday" aria-label="Order Birthday Glow sample">
                       <span className="celebration-sample-confetti" aria-hidden="true">✦　✧　✦</span><span className="celebration-sample-kicker">A LITTLE MORE MAGIC</span><strong>Happy<br/>Birthday!</strong><span className="celebration-sample-name">made just for you</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
                     </a>
-                    <a className="celebration-sample celebration-sample-love" href={buildGmailComposeUrl("Anniversary surprise website — ₱50 starter", "Anniversary surprise website — choose Our Story sample")} aria-label="Order Our Story sample">
+                    <a className="celebration-sample celebration-sample-love" href="/surprise/anniversary" aria-label="Order Our Story sample">
                       <span className="celebration-sample-heart" aria-hidden="true">♡</span><span className="celebration-sample-kicker">EVERY MOMENT, US</span><strong>Our<br/><i>Story.</i></strong><span className="celebration-sample-name">one love, many memories</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
                     </a>
-                    <a className="celebration-sample celebration-sample-party" href={buildGmailComposeUrl("Special celebration surprise website — ₱50 starter", "Celebration surprise website — choose Little Celebration sample")} aria-label="Order Little Celebration sample">
+                    <a className="celebration-sample celebration-sample-party" href="/surprise/celebration" aria-label="Order Little Celebration sample">
                       <span className="celebration-sample-confetti" aria-hidden="true">✷　✦　✷</span><span className="celebration-sample-kicker">TODAY IS YOURS</span><strong>Let's<br/>Celebrate!</strong><span className="celebration-sample-name">a page full of happy</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
                     </a>
                   </div>
