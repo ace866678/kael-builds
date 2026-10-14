@@ -679,6 +679,21 @@ function App() {
                   <li><Check size={14} /> Sweet visual theme and shareable link</li>
                 </ul>
                 <p className="service-description">More personal touches—photos, music, animations, countdowns, or interactive surprises—can be added with a separate quote.</p>
+                <div className="celebration-samples" aria-label="Celebration website sample designs">
+                  <div className="celebration-samples-heading"><span>CHOOSE A STYLE</span><span>LIVE PREVIEW CONCEPTS</span></div>
+                  <div className="celebration-sample-grid">
+                    <a className="celebration-sample celebration-sample-birthday" href={buildGmailComposeUrl("Birthday surprise website — ₱50 starter", "Birthday surprise website — choose Birthday Glow sample")} aria-label="Order Birthday Glow sample">
+                      <span className="celebration-sample-confetti" aria-hidden="true">✦　✧　✦</span><span className="celebration-sample-kicker">A LITTLE MORE MAGIC</span><strong>Happy<br/>Birthday!</strong><span className="celebration-sample-name">made just for you</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
+                    </a>
+                    <a className="celebration-sample celebration-sample-love" href={buildGmailComposeUrl("Anniversary surprise website — ₱50 starter", "Anniversary surprise website — choose Our Story sample")} aria-label="Order Our Story sample">
+                      <span className="celebration-sample-heart" aria-hidden="true">♡</span><span className="celebration-sample-kicker">EVERY MOMENT, US</span><strong>Our<br/><i>Story.</i></strong><span className="celebration-sample-name">one love, many memories</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
+                    </a>
+                    <a className="celebration-sample celebration-sample-party" href={buildGmailComposeUrl("Special celebration surprise website — ₱50 starter", "Celebration surprise website — choose Little Celebration sample")} aria-label="Order Little Celebration sample">
+                      <span className="celebration-sample-confetti" aria-hidden="true">✷　✦　✷</span><span className="celebration-sample-kicker">TODAY IS YOURS</span><strong>Let's<br/>Celebrate!</strong><span className="celebration-sample-name">a page full of happy</span><span className="celebration-sample-action">VIEW THIS STYLE ↗</span>
+                    </a>
+                  </div>
+                  <p className="celebration-samples-note">These are sample styles. Your ₱50 starter includes a simple personalized page; extra animation, photos, music, and interactive features can be quoted separately.</p>
+                </div>
                 <a className="service-cta" href={buildGmailComposeUrl("Surprise website — Birthday / anniversary / celebration", "₱50 celebration surprise website")}>Create a surprise <ArrowUpRight size={16} /></a>
               </article>
 
