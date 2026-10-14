@@ -62,7 +62,7 @@ function buildGmailComposeUrl(subject: string, service: string) {
   return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PORTFOLIO_URL)}`;
+const facebookMessageUrl = "https://m.me/raizenix.7169";
 
 const projects: Project[] = [
   {
@@ -915,7 +915,7 @@ function App() {
         <div className="page-shell footer-inner">
           <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span><span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span></a>
           <span className="footer-note">Built with curiosity, care, and React.</span>
-          <div className="footer-links"><a href={buildGmailComposeUrl("Portfolio inquiry", "Portfolio inquiry")} target="_blank" rel="noreferrer">Email me <ArrowUpRight size={14} /></a><a href={facebookShareUrl} target="_blank" rel="noreferrer">Share on Facebook <ExternalLink size={14} /></a><a href="#home">Back to top ↑</a></div>
+          <div className="footer-links"><a href={buildGmailComposeUrl("Portfolio inquiry", "Portfolio inquiry")} target="_blank" rel="noreferrer">Email me <ArrowUpRight size={14} /></a><a href={facebookMessageUrl} target="_blank" rel="noreferrer">Message me on Facebook <ExternalLink size={14} /></a><a href="#home">Back to top ↑</a></div>
           <span className="footer-year">© {new Date().getFullYear()} KAEL BUILDS</span>
         </div>
       </footer>
