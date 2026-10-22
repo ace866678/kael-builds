@@ -565,6 +565,11 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // Render the standalone celebration demos on their own routes instead of the main portfolio.
+  if (surpriseRoute === "birthday" || surpriseRoute === "anniversary" || surpriseRoute === "celebration") {
+    return <CelebrationPreview kind={surpriseRoute} />;
+  }
+
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
