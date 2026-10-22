@@ -22,6 +22,7 @@ import {
   X,
 } from "lucide-react";
 import { Analytics } from "@vercel/analytics/react";
+import { buildNotesArticle } from "./content/buildNotes";
 
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
@@ -517,6 +518,8 @@ function App() {
       ".all-projects-cta",
       ".design-showcase",
       ".design-picker-item",
+      ".build-notes-heading",
+      ".build-notes-card",
       ".approach-heading",
       ".process-step",
       ".about-stamp",
@@ -587,8 +590,9 @@ function App() {
             <a href="#work" onClick={closeMenu}>Selected work <span>01</span></a>
             <a href="#services" onClick={closeMenu}>Services <span>02</span></a>
             <a href="#design-lab" onClick={closeMenu}>Design lab <span>03</span></a>
-            <a href="#approach" onClick={closeMenu}>Approach <span>04</span></a>
-            <a href="#about" onClick={closeMenu}>About <span>05</span></a>
+            <a href="#build-notes" onClick={closeMenu}>Build notes <span>04</span></a>
+            <a href="#approach" onClick={closeMenu}>Approach <span>05</span></a>
+            <a href="#about" onClick={closeMenu}>About <span>06</span></a>
             <a className="nav-contact" href="#contact" onClick={closeMenu}>Let's connect <ArrowUpRight size={15} /></a>
           </nav>
         </div>
@@ -834,6 +838,58 @@ function App() {
                 </button>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="build-notes-section section-pad" id="build-notes">
+          <div className="page-shell">
+            <div className="section-heading build-notes-heading">
+              <div>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE BUILD NOTES / 001</div>
+                <h2>Build with intent.<br /><span>Learn as you go.</span></h2>
+              </div>
+              <p className="section-intro">Practical notes on turning ideas into useful software, making deliberate trade-offs, and improving a project one tested step at a time.</p>
+            </div>
+
+            <article className="build-notes-card">
+              <div className="build-notes-cover" aria-hidden="true">
+                <div className="build-notes-cover-top"><span>KAEL BUILDS / FIELD NOTES</span><span>001 — 006</span></div>
+                <div className="build-notes-cover-grid">
+                  <span className="build-notes-cover-index">01</span>
+                  <div className="build-notes-cover-title">IDEA <i>→</i><br />PROTOTYPE<span>.</span></div>
+                  <div className="build-notes-cover-orbit build-notes-cover-orbit-one" />
+                  <div className="build-notes-cover-orbit build-notes-cover-orbit-two" />
+                  <div className="build-notes-cover-stamp">MAKE<br />TEST<br />LEARN</div>
+                </div>
+                <div className="build-notes-cover-bottom"><span>SMALL STEPS / CLEAR OUTCOMES</span><span>FIELD GUIDE</span></div>
+              </div>
+              <div className="build-notes-article">
+                <div className="build-notes-meta"><span>{buildNotesArticle.kicker}</span><span>{buildNotesArticle.readingTime}</span></div>
+                <span className="build-notes-status">{buildNotesArticle.status}</span>
+                <h3>{buildNotesArticle.title}</h3>
+                <p className="build-notes-subtitle">{buildNotesArticle.subtitle}</p>
+                <p className="build-notes-introduction">{buildNotesArticle.introduction}</p>
+                <div className="build-notes-content">
+                  {buildNotesArticle.sections.map((section) => (
+                    <section className="build-note-section" key={section.heading}>
+                      <h4>{section.heading}</h4>
+                      {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                      {"bullets" in section && section.bullets.length > 0 && (
+                        <ul>
+                          {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                        </ul>
+                      )}
+                    </section>
+                  ))}
+                </div>
+                <div className="build-notes-takeaway">
+                  <span>THE TAKEAWAY</span>
+                  <p>{buildNotesArticle.closing}</p>
+                </div>
+                <div className="build-notes-footer"><span>BUILD NOTES / 001</span><a href="#work">Explore the projects <ArrowUpRight size={15} /></a></div>
+              </div>
+            </article>
+            <p className="build-notes-disclaimer">A practical guide, not a report of a specific experiment. Future notes will document project decisions and test results only when they have actually been observed.</p>
           </div>
         </section>
 
