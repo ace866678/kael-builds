@@ -874,7 +874,7 @@ function App() {
                     <section className="build-note-section" key={section.heading}>
                       <h4>{section.heading}</h4>
                       {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                      {"bullets" in section && section.bullets.length > 0 && (
+                      {"bullets" in section && Array.isArray(section.bullets) && section.bullets.length > 0 && (
                         <ul>
                           {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
                         </ul>
