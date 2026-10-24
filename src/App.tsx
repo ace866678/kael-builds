@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  ArrowDown,
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
@@ -999,7 +998,7 @@ function App() {
         </section>
 
 
-        <section className="graphic-gallery-section section-pad" id="graphic-gallery" aria-label="Graphic design portfolio" role="tabpanel" aria-labelledby="tab-graphic-gallery" tabIndex={-1} hidden={activeTab !== "graphic-gallery"} aria-label="Graphic design">
+        <section className="graphic-gallery-section section-pad" id="graphic-gallery" role="tabpanel" aria-labelledby="tab-graphic-gallery" tabIndex={-1} hidden={activeTab !== "graphic-gallery"} aria-label="Graphic design portfolio">
           <div className="page-shell">
             <div className="section-heading graphic-gallery-heading">
               <div>
