@@ -16,8 +16,7 @@ export const designGalleryItems = [
     alt: "A flat three-panel Kael Builds brochure concept: a charcoal introduction panel, a warm-white services panel with a browser diagram, and a lime call-to-action panel.",
     designNotes: "The left panel establishes the message, the center groups the three service areas, and the lime panel gives the next step a strong finish. Repeated labels and fold-aware spacing help the spread read as one system while each panel keeps its own role.",
     limitations: "This is one concept spread, not a complete multi-page brochure or a print-ready file. Final panel widths, fold allowance, bleed, safe margins, color settings, and approved production copy must be checked before printing."
-  }
-
+  },
   {
     id: "poster-001",
     title: "Make It Useful — typographic studio poster",
@@ -35,6 +34,5 @@ export const designGalleryItems = [
     alt: "Portrait poster study built around a bold headline, abstract geometry, and a simple process line in the Kael Builds charcoal, warm-white, and lime palette.",
     designNotes: "One short headline supplies the focal point. A strict charcoal, warm-white, and lime palette creates contrast, while the directional footer gives the message a simple rhythm that reads on a phone.",
     limitations: "Generated concept artwork; not a live product or print-ready deliverable. Review the rendered text, spelling, color reproduction, trim, bleed, and safe margins before printing. The generated raster is embedded from its hosting service because this session could not transfer the original PNG into repository storage."
-  }
-
+  },
 ] as const;
