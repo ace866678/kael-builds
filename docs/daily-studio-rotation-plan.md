@@ -6,7 +6,7 @@
 **Facebook destination:** Kael Builds only — Page ID `102170568818838`  
 **Public project link allowed in captions and portfolio copy:** https://kael-builds.vercel.app
 
-This is an operating plan, not proof that future graphics or posts have already been produced. At the next run, check actual permissions, Pollo credits, available assets, Page state, and build results before reporting completion.
+This file is the cumulative operating plan and run log. Treat every asset/post as pending until its status below and the connected service both confirm the result. At each run, recheck permissions, Pollo credits, the Page queue, and build status before proceeding.
 
 ## Non-negotiable publishing rules
 
@@ -47,30 +47,36 @@ Today's three October 24 slot tags already exist in the published Page feed. The
 - **Status:** Concept study, not a live product or print-ready file.
 - **Asset note:** Pollo returned a successful 4:5, 1K poster asset on Oct 24. The gallery references the hosted raster because this session could not download the original PNG into repository storage. Check that the embedded image loads before treating the gallery entry as complete; do not display its CDN URL as a public link.
 
-### Three post briefs (create only if today's slots do not already exist)
+### Scheduled post slots for Sunday, 25 October 2026 (unpublished; verify at publish time)
 
-**A — `#KaelBuildNotes` / target 08:30 Manila**
+The pre-schedule duplicate guard found no October 25 slots in the published feed or queue. All three photo posts were then created as scheduled/unpublished entries; the queue was fetched again and confirmed one image attachment and the expected caption for each. These are not live in the published feed.
+
+- `#KaelBuildNotes` — scheduled 08:30 Manila / 00:30 UTC; post ID `102170568818838_1097860846196928`.
+- `#KaelUXLab` — scheduled 15:00 Manila / 07:00 UTC; post ID `102170568818838_1097860836196929`.
+- `#KaelProjectNotes` — scheduled 19:00 Manila / 11:00 UTC; post ID `102170568818838_1097860862863593`.
+
+**A — `#KaelBuildNotes` / scheduled 08:30 Manila****
 - Topic: Reserve image space to reduce unexpected layout movement.
 - Takeaway: Provide image dimensions or an aspect ratio, keep the image responsive, and measure remaining shifts rather than assuming a single tweak solved every issue.
 - Graphic: A clean before/after layout sketch: shifting cards versus reserved image space. This is a concept illustration, not a benchmark.
 - Prompt: “Which page element causes the most layout jumping on your phone?”
 - Caption link: https://kael-builds.vercel.app only.
 
-**B — `#KaelUXLab` / target 15:00 Manila**
+**B — `#KaelUXLab` / scheduled 15:00 Manila****
 - Topic: Compare a clear selected-tab state plus keyboard focus against a color-only selected state.
 - Takeaway: Selection and keyboard focus are different states; neither should depend on color alone.
 - Graphic: A labelled A/B interface study with focus outline and selected indicator visible in both concepts. Label it a UI concept, not a tested usability result.
 - Prompt: “Which state is easier to understand at a glance, and why?”
 - Caption link: https://kael-builds.vercel.app only.
 
-**C — `#KaelProjectNotes` / target 19:00 Manila**
-- Topic: The portfolio is moving from a long scrolling page to explicit click-through panels.
+**C — `#KaelProjectNotes` / scheduled 19:00 Manila****
+- Topic: The portfolio has moved from one long scrolling page to explicit click-through panels.
 - Takeaway: Tab navigation should keep the active section obvious, support keyboard movement, and still work at mobile widths.
-- Graphic: A small “Before: long page / After: section tabs” comparison; use actual screenshots only if the change is validated, otherwise label it as a planned/interface study.
+- Graphic: A labelled before/after navigation diagram. It is an illustration of the shipped change, not a literal website screenshot or an accessibility audit.
 - Prompt: “Would you rather open a dedicated tab for Work, Web Design, Graphic Design, and Build Notes, or keep them on one scrolling page?”
 - Caption link: https://kael-builds.vercel.app only.
 
-Do not claim the tab transition is deployed until TypeScript/Vite or the configured CI passes and the intended branch is merged/deployed.
+The tab transition is merged and deployed. The next run must still test the live interaction at desktop and narrow mobile widths; do not infer accessibility from a successful build alone.
 
 ## Format rotation ledger
 
@@ -79,7 +85,7 @@ Keep this cumulative and append a new dated line after each run.
 | Date | Featured category | Deliverable | Status / lesson |
 |---|---|---|---|
 | 2026-10-24 | Print / editorial | Studio services tri-fold brochure concept | Existing gallery entry; concept spread, not a complete brochure. |
-| 2026-10-25 | Poster / typography | Make It Useful — typographic studio poster | Pollo generation succeeded; confirm gallery and hosting before marking web display complete. |
+| 2026-10-25 | Poster / typography | Make It Useful — typographic studio poster | Pollo generation succeeded; gallery embeds the hosted raster. The original PNG is not stored in repository files because this session could not transfer its bytes. |
 | 2026-10-26 | Brand identity or packaging | Choose one based on the next feed review | Tentative only; do not generate until the next run checks for repeats and credits. |
 
 ### Suggested rotation pool
@@ -126,3 +132,10 @@ Reset the rotation only after the pool cycles; vary the subject, composition, in
 - Completed: click-through tab panels, keyboard controls, gallery rotation, and this plan were merged to main at commit `f172256f80b1430b5a789bda38473a0770445d90`. GitHub Actions TypeScript/Vite production build passed; the Vercel production deployment for that commit reported READY.
 - Lesson: verify captions and links before the photo-post creation call; do not rely on post-edit permission after publication.
 - Page insights snapshot returned 255 lifetime follows, 7 page media views, 3 daily post engagements, 0 video views, and 0 Page actions. The metric bucket ended at `2026-10-25T07:00:00Z`, ahead of the Oct 24 Manila-day query window, so these counts are not treated as a clean same-day comparison.
+
+### 2026-10-24 — Queued Sunday photo posts
+- `#KaelBuildNotes`: Pollo image generated successfully; queued unpublished for Oct 25 08:30 Manila; post ID `102170568818838_1097860846196928`.
+- `#KaelUXLab`: distinct Pollo A/B focus-state graphic generated successfully; queued unpublished for Oct 25 15:00 Manila; post ID `102170568818838_1097860836196929`.
+- `#KaelProjectNotes`: distinct Pollo tab-navigation comparison generated successfully; queued unpublished for Oct 25 19:00 Manila; post ID `102170568818838_1097860862863593`.
+- The post-creation queue check confirmed all three are `is_published=false`, have photo attachments, and use only https://kael-build.vercel.app as the caption URL. Do not report them as live until the published feed confirms each slot.
+- Pollo balance checked after generation: 7 credits available.
