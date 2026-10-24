@@ -125,3 +125,4 @@ Reset the rotation only after the pool cycles; vary the subject, composition, in
 - Pollo poster generation succeeded (4:5, 1K, low quality, 1 credit reported).
 - Completed: click-through tab panels, keyboard controls, gallery rotation, and this plan were merged to main at commit `f172256f80b1430b5a789bda38473a0770445d90`. GitHub Actions TypeScript/Vite production build passed; the Vercel production deployment for that commit reported READY.
 - Lesson: verify captions and links before the photo-post creation call; do not rely on post-edit permission after publication.
+- Page insights snapshot returned 255 lifetime follows, 7 page media views, 3 daily post engagements, 0 video views, and 0 Page actions. The metric bucket ended at `2026-10-25T07:00:00Z`, ahead of the Oct 24 Manila-day query window, so these counts are not treated as a clean same-day comparison.
