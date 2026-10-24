@@ -990,7 +990,7 @@ function App() {
                 </div>
                 <div className="build-notes-footer">
                   <span>BUILD NOTES / 002</span>
-                  <span className="build-notes-source-note">PRACTICAL FIELD GUIDE · MORE WORK AT {PORTFOLIO_URL.replace("https://", "")}</span>
+                  <a className="build-notes-source-note" href={PORTFOLIO_URL}>MORE FROM KAEL BUILDS · {PORTFOLIO_URL}</a>
                 </div>
               </div>
             </article>
