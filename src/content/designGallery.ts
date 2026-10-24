@@ -32,7 +32,7 @@ export const designGalleryItems = [
     purpose: "A compact studio-manifesto poster that turns making, testing, and improving into a clear visual sequence.",
     status: "CONCEPT STUDY · NOT A LIVE PRODUCT",
     image: "https://videocdn.pollo.ai/web-cdn/pollo/production/cmp7tzhyd0z52fiwh3p542ib4/ori/cmvmbt3jj0toq4bp8hlwdj5mv-0-9946b6717108af09.png",
-    alt: "Portrait Kael Builds poster study with the headline Make It Useful, a charcoal and lime geometric composition, and the footer Idea to Test to Improve on a warm-white background.",
+    alt: "Portrait poster study built around a bold headline, abstract geometry, and a simple process line in the Kael Builds charcoal, warm-white, and lime palette.",
     designNotes: "One short headline supplies the focal point. A strict charcoal, warm-white, and lime palette creates contrast, while the directional footer gives the message a simple rhythm that reads on a phone.",
     limitations: "Generated concept artwork; not a live product or print-ready deliverable. Review the rendered text, spelling, color reproduction, trim, bleed, and safe margins before printing. The generated raster is embedded from its hosting service because this session could not transfer the original PNG into repository storage."
   }
