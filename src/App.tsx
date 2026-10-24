@@ -24,6 +24,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { buildNotesArticle } from "./content/buildNotes";
 import { buildNotesArticle002 } from "./content/buildNotes002";
+import { designGalleryItems } from "./content/designGallery";
 
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
@@ -519,6 +520,8 @@ function App() {
       ".all-projects-cta",
       ".design-showcase",
       ".design-picker-item",
+      ".graphic-gallery-heading",
+      ".graphic-gallery-card",
       ".build-notes-heading",
       ".build-notes-card",
       ".approach-heading",
@@ -596,9 +599,10 @@ function App() {
             <a href="#work" onClick={closeMenu}>Selected work <span>01</span></a>
             <a href="#services" onClick={closeMenu}>Services <span>02</span></a>
             <a href="#design-lab" onClick={closeMenu}>Design lab <span>03</span></a>
-            <a href="#build-notes" onClick={closeMenu}>Build notes <span>04</span></a>
-            <a href="#approach" onClick={closeMenu}>Approach <span>05</span></a>
-            <a href="#about" onClick={closeMenu}>About <span>06</span></a>
+            <a href="#graphic-gallery" onClick={closeMenu}>Graphic gallery <span>04</span></a>
+            <a href="#build-notes" onClick={closeMenu}>Build notes <span>05</span></a>
+            <a href="#approach" onClick={closeMenu}>Approach <span>06</span></a>
+            <a href="#about" onClick={closeMenu}>About <span>07</span></a>
             <a className="nav-contact" href="#contact" onClick={closeMenu}>Let's connect <ArrowUpRight size={15} /></a>
           </nav>
         </div>
@@ -942,6 +946,55 @@ function App() {
               </div>
             </article>
             <p className="build-notes-disclaimer">These field guides explain repeatable techniques; project experiments and test results are labeled only when they have actually been observed.</p>
+          </div>
+        </section>
+
+
+        <section className="graphic-gallery-section section-pad" id="graphic-gallery" aria-label="Graphic design portfolio">
+          <div className="page-shell">
+            <div className="section-heading graphic-gallery-heading">
+              <div>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> GRAPHIC DESIGN / PORTFOLIO STUDY 001</div>
+                <h2>From screen to print.<br /><span>One idea, three panels.</span></h2>
+              </div>
+              <p className="section-intro">A print/editorial concept that introduces a small digital studio through clear hierarchy, restrained copy, and a direct next step. This is a design study, not a client deliverable.</p>
+            </div>
+
+            <div className="graphic-gallery-list">
+              {designGalleryItems.map((item) => (
+                <article className="graphic-gallery-card" key={item.id}>
+                  <div className="graphic-gallery-art">
+                    <img
+                      src={item.image}
+                      width={1200}
+                      height={900}
+                      loading="lazy"
+                      decoding="async"
+                      alt={item.alt}
+                    />
+                    <span className="graphic-gallery-status">{item.status}</span>
+                  </div>
+                  <div className="graphic-gallery-copy">
+                    <div className="graphic-gallery-meta"><span>{item.category}</span><span>{item.dimensions}</span></div>
+                    <h3>{item.title}</h3>
+                    <p className="graphic-gallery-purpose">{item.purpose}</p>
+                    <dl className="graphic-gallery-specs">
+                      <div><dt>Format</dt><dd>{item.format}</dd></div>
+                      <div><dt>Medium</dt><dd>{item.medium}</dd></div>
+                      <div><dt>Purpose</dt><dd>{item.audience}</dd></div>
+                    </dl>
+                    <div className="graphic-gallery-decisions">
+                      <span>DESIGN DECISIONS</span>
+                      <p>{item.designNotes}</p>
+                    </div>
+                    <p className="graphic-gallery-limitations">{item.limitations}</p>
+                    <a className="graphic-gallery-link" href={item.image} target="_blank" rel="noreferrer" aria-label={`Open the full ${item.title} graphic in a new tab`}>
+                      View full graphic <ArrowUpRight size={15} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

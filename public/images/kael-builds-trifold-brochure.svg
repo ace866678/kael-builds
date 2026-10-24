@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kael Builds tri-fold brochure concept</title>
+  <desc id="desc">A three-panel print design study using charcoal, warm white, and lime. The panels introduce the studio, summarize web, research, and prototype work, and point to the portfolio website.</desc>
+  <rect width="1200" height="900" fill="#F6F7F4"/>
+  <rect width="400" height="900" fill="#101820"/>
+  <rect x="800" width="400" height="900" fill="#D5F36A"/>
+  <g fill="none" stroke="#101820" stroke-opacity=".28" stroke-width="2" stroke-dasharray="8 8">
+    <path d="M400 0V900"/>
+    <path d="M800 0V900"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g fill="#F6F7F4">
+      <text x="48" y="56" font-size="15" font-weight="700" letter-spacing="2.2">KAEL BUILDS</text>
+      <text x="352" y="56" font-size="12" text-anchor="end" fill="#D5F36A">001</text>
+      <path d="M48 78H352" stroke="#F6F7F4" stroke-opacity=".22"/>
+      <text x="48" y="132" font-size="12" letter-spacing="2.4" fill="#D5F36A">BUILD / FIELD NOTE</text>
+      <text x="48" y="238" font-size="68" font-weight="800" letter-spacing="-3">BUILD</text>
+      <text x="48" y="310" font-size="68" font-weight="800" letter-spacing="-3">WITH</text>
+      <text x="48" y="382" font-size="68" font-weight="800" letter-spacing="-3">INTENT<tspan fill="#D5F36A">.</tspan></text>
+      <text x="48" y="472" font-size="23" fill="#DCE4DE">Digital work for</text>
+      <text x="48" y="504" font-size="23" fill="#DCE4DE">specific problems.</text>
+      <path d="M48 582H352" stroke="#F6F7F4" stroke-opacity=".22"/>
+      <text x="48" y="616" font-size="12" letter-spacing="1.5" fill="#A8B4AD">PLAN WITH PURPOSE.</text>
+      <text x="48" y="640" font-size="12" letter-spacing="1.5" fill="#A8B4AD">MAKE IT USEFUL.</text>
+      <text x="48" y="664" font-size="12" letter-spacing="1.5" fill="#A8B4AD">REFINE WHAT MATTERS.</text>
+      <circle cx="319" cy="744" r="29" fill="none" stroke="#D5F36A" stroke-width="1.5"/>
+      <path d="M300 744H338M319 725V763" stroke="#D5F36A" stroke-width="1.5"/>
+      <text x="48" y="842" font-size="10" letter-spacing="1.8" fill="#A8B4AD">STUDIO SERVICES / CONCEPT</text>
+    </g>
+
+    <g fill="#101820">
+      <text x="448" y="56" font-size="15" font-weight="700" letter-spacing="2.2">WHAT I MAKE</text>
+      <text x="752" y="56" font-size="12" text-anchor="end" fill="#71823A">02 / 03</text>
+      <path d="M448 78H752" stroke="#101820" stroke-opacity=".18"/>
+      <text x="448" y="130" font-size="25" font-weight="800" letter-spacing="-.7">WEB / RESEARCH /</text>
+      <text x="448" y="162" font-size="25" font-weight="800" letter-spacing="-.7">PROTOTYPES</text>
+
+      <rect x="448" y="212" width="304" height="252" rx="7" fill="#FFFFFF" stroke="#101820" stroke-opacity=".22"/>
+      <path d="M448 248H752" stroke="#101820" stroke-opacity=".18"/>
+      <circle cx="467" cy="230" r="4" fill="#D5F36A" stroke="#101820" stroke-opacity=".35"/>
+      <circle cx="482" cy="230" r="4" fill="#E4E9DF" stroke="#101820" stroke-opacity=".35"/>
+      <circle cx="497" cy="230" r="4" fill="#E4E9DF" stroke="#101820" stroke-opacity=".35"/>
+      <rect x="470" y="272" width="95" height="12" rx="3" fill="#D5F36A"/>
+      <rect x="470" y="294" width="185" height="7" rx="3.5" fill="#D8DED6"/>
+      <rect x="470" y="309" width="150" height="7" rx="3.5" fill="#D8DED6"/>
+      <rect x="470" y="342" width="76" height="76" rx="4" fill="#101820"/>
+      <path d="M489 380L506 363L523 380L506 397Z" fill="#D5F36A"/>
+      <rect x="562" y="342" width="168" height="12" rx="3" fill="#D8DED6"/>
+      <rect x="562" y="364" width="145" height="7" rx="3.5" fill="#D8DED6"/>
+      <rect x="562" y="380" width="158" height="7" rx="3.5" fill="#D8DED6"/>
+      <rect x="562" y="396" width="119" height="7" rx="3.5" fill="#D8DED6"/>
+
+      <path d="M448 510H752M448 586H752M448 662H752" stroke="#101820" stroke-opacity=".18"/>
+      <circle cx="466" cy="548" r="13" fill="#D5F36A"/>
+      <text x="466" y="552" font-size="10" font-weight="800" text-anchor="middle">01</text>
+      <text x="492" y="553" font-size="19" font-weight="800">Plan.</text>
+      <circle cx="466" cy="624" r="13" fill="#D5F36A"/>
+      <text x="466" y="628" font-size="10" font-weight="800" text-anchor="middle">02</text>
+      <text x="492" y="629" font-size="19" font-weight="800">Make.</text>
+      <circle cx="466" cy="700" r="13" fill="#D5F36A"/>
+      <text x="466" y="704" font-size="10" font-weight="800" text-anchor="middle">03</text>
+      <text x="492" y="705" font-size="19" font-weight="800">Refine.</text>
+      <text x="448" y="842" font-size="10" letter-spacing="1.4" fill="#65716A">CLEAR STRUCTURE / USEFUL OUTCOMES</text>
+    </g>
+
+    <g fill="#101820">
+      <text x="848" y="56" font-size="15" font-weight="700" letter-spacing="2.2">NEXT STEP</text>
+      <text x="1152" y="56" font-size="12" text-anchor="end">03 / 03</text>
+      <path d="M848 78H1152" stroke="#101820" stroke-opacity=".25"/>
+      <text x="848" y="180" font-size="48" font-weight="800" letter-spacing="-2">MAKE THE</text>
+      <text x="848" y="236" font-size="48" font-weight="800" letter-spacing="-2">NEXT STEP</text>
+      <text x="848" y="292" font-size="48" font-weight="800" letter-spacing="-2">CLEAR<tspan fill="#F6F7F4">.</tspan></text>
+      <path d="M848 338H1152" stroke="#101820" stroke-opacity=".25"/>
+      <text x="848" y="386" font-size="21" font-weight="700">Plan. Make. Refine.</text>
+      <text x="848" y="418" font-size="16">Build a better first version.</text>
+      <rect x="848" y="500" width="304" height="66" rx="4" fill="#101820"/>
+      <text x="870" y="540" font-size="14" font-weight="700" fill="#F6F7F4">Explore the portfolio</text>
+      <path d="M1110 532H1130M1122 524L1130 532L1122 540" fill="none" stroke="#D5F36A" stroke-width="2"/>
+      <text x="848" y="620" font-size="14" font-weight="700">https://kael-builds.vercel.app</text>
+      <circle cx="1090" cy="718" r="54" fill="none" stroke="#101820" stroke-opacity=".25" stroke-width="2"/>
+      <circle cx="1090" cy="718" r="34" fill="none" stroke="#101820" stroke-opacity=".25" stroke-width="2"/>
+      <path d="M1054 718H1126M1090 682V754" stroke="#101820" stroke-opacity=".25" stroke-width="2"/>
+      <text x="848" y="842" font-size="10" letter-spacing="1.4">CONCEPT MOCKUP / NOT PRINT-READY</text>
+    </g>
+  </g>
+</svg>
