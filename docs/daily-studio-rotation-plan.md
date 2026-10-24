@@ -123,5 +123,5 @@ Reset the rotation only after the pool cycles; vary the subject, composition, in
 - In-place caption edits failed: the connected Facebook permission returned “Viewer does not have permission to edit content.” No duplicate posts were created.
 - The scheduled/unpublished queue returned empty.
 - Pollo poster generation succeeded (4:5, 1K, low quality, 1 credit reported).
-- Next engineering improvement: validate the click-through tabs and gallery on the working branch, check CI, then merge only after passing.
+- Completed: click-through tab panels, keyboard controls, gallery rotation, and this plan were merged to main at commit `f172256f80b1430b5a789bda38473a0770445d90`. GitHub Actions TypeScript/Vite production build passed; the Vercel production deployment for that commit reported READY.
 - Lesson: verify captions and links before the photo-post creation call; do not rely on post-edit permission after publication.
