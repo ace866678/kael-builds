@@ -626,6 +626,19 @@ function App() {
                 aria-selected={activeTab === tab.id}
                 aria-controls={tab.id}
                 onClick={() => selectTab(tab.id)}
+                onKeyDown={(event) => {
+                  if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+                  event.preventDefault();
+                  const currentIndex = sectionTabs.findIndex((item) => item.id === tab.id);
+                  const nextIndex = event.key === "Home"
+                    ? 0
+                    : event.key === "End"
+                      ? sectionTabs.length - 1
+                      : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + sectionTabs.length) % sectionTabs.length;
+                  const nextTab = sectionTabs[nextIndex];
+                  selectTab(nextTab.id);
+                  window.requestAnimationFrame(() => document.getElementById(`tab-${nextTab.id}`)?.focus());
+                }}
               >
                 {tab.label}
                 {tab.id === "contact" ? <ArrowUpRight size={15} /> : <span>{tab.number}</span>}
@@ -977,11 +990,7 @@ function App() {
                 </div>
                 <div className="build-notes-footer">
                   <span>BUILD NOTES / 002</span>
-                  <div>
-                    {buildNotesArticle002.sources.map((source) => (
-                      <a href={source.url} target="_blank" rel="noreferrer" key={source.url}>{source.label} <ExternalLink size={13} /></a>
-                    ))}
-                  </div>
+                  <span className="build-notes-source-note">PRACTICAL FIELD GUIDE · MORE WORK AT {PORTFOLIO_URL.replace("https://", "")}</span>
                 </div>
               </div>
             </article>
@@ -994,10 +1003,10 @@ function App() {
           <div className="page-shell">
             <div className="section-heading graphic-gallery-heading">
               <div>
-                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> GRAPHIC DESIGN / PORTFOLIO STUDY 001</div>
-                <h2>From screen to print.<br /><span>One idea, three panels.</span></h2>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> GRAPHIC DESIGN / ROTATING PORTFOLIO</div>
+                <h2>Different formats.<br /><span>One growing studio.</span></h2>
               </div>
-              <p className="section-intro">A print/editorial concept that introduces a small digital studio through clear hierarchy, restrained copy, and a direct next step. This is a design study, not a client deliverable.</p>
+              <p className="section-intro">A rotating collection of original studies across posters, brochures, brand identity, editorial, packaging, campaigns, visual explainers, and other graphic formats. Each entry states its format, purpose, and honest production status.</p>
             </div>
 
             <div className="graphic-gallery-list">
@@ -1006,8 +1015,9 @@ function App() {
                   <div className="graphic-gallery-art">
                     <img
                       src={item.image}
-                      width={1200}
-                      height={900}
+                      width={item.width}
+                      height={item.height}
+                      style={{ aspectRatio: item.aspectRatio }}
                       loading="lazy"
                       decoding="async"
                       alt={item.alt}
@@ -1028,9 +1038,9 @@ function App() {
                       <p>{item.designNotes}</p>
                     </div>
                     <p className="graphic-gallery-limitations">{item.limitations}</p>
-                    <a className="graphic-gallery-link" href={item.image} target="_blank" rel="noreferrer" aria-label={`Open the full ${item.title} graphic in a new tab`}>
-                      View full graphic <ArrowUpRight size={15} />
-                    </a>
+                    <span className="graphic-gallery-link" aria-label={`Featured graphic design study: ${item.title}`}>
+                      Featured in the Kael Builds gallery
+                    </span>
                   </div>
                 </article>
               ))}
