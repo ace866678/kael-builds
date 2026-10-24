@@ -29,6 +29,20 @@ import { designGalleryItems } from "./content/designGallery";
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
 
+type SiteTab = "home" | "work" | "services" | "design-lab" | "graphic-gallery" | "build-notes" | "approach" | "about" | "contact";
+
+const sectionTabs: { id: SiteTab; label: string; number: string }[] = [
+  { id: "home", label: "Overview", number: "00" },
+  { id: "work", label: "Selected work", number: "01" },
+  { id: "services", label: "Services", number: "02" },
+  { id: "design-lab", label: "Web design", number: "03" },
+  { id: "graphic-gallery", label: "Graphic design", number: "04" },
+  { id: "build-notes", label: "Build notes", number: "05" },
+  { id: "approach", label: "Approach", number: "06" },
+  { id: "about", label: "About", number: "07" },
+  { id: "contact", label: "Let’s connect", number: "08" },
+];
+
 type Project = {
   id: string;
   number: string;
@@ -494,6 +508,7 @@ function CelebrationPreview({ kind }: { kind: "birthday" | "anniversary" | "cele
 }
 
 function App() {
+  const [activeTab, setActiveTab] = useState<SiteTab>("home");
   const [filter, setFilter] = useState<Filter>("All work");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDesignIndex, setActiveDesignIndex] = useState(0);
@@ -568,6 +583,11 @@ function App() {
     : projects.filter((project) => project.category === filter);
 
   const closeMenu = () => setMenuOpen(false);
+  const selectTab = (tab: SiteTab) => {
+    setActiveTab(tab);
+    closeMenu();
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
+  };
 
   // Render the standalone celebration demos on their own routes instead of the main portfolio.
   if (surpriseRoute === "birthday" || surpriseRoute === "anniversary" || surpriseRoute === "celebration") {
@@ -579,7 +599,7 @@ function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header">
         <div className="header-inner page-shell">
-          <a className="wordmark" href="#home" aria-label="Kael Builds home" onClick={closeMenu}>
+          <a className="wordmark" href="#home" aria-label="Kael Builds overview" onClick={(event) => { event.preventDefault(); selectTab("home"); }}>
             <span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span>
             <span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span>
           </a>
@@ -595,21 +615,41 @@ function App() {
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
 
-          <nav id="primary-navigation" className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
-            <a href="#work" onClick={closeMenu}>Selected work <span>01</span></a>
-            <a href="#services" onClick={closeMenu}>Services <span>02</span></a>
-            <a href="#design-lab" onClick={closeMenu}>Design lab <span>03</span></a>
-            <a href="#graphic-gallery" onClick={closeMenu}>Graphic gallery <span>04</span></a>
-            <a href="#build-notes" onClick={closeMenu}>Build notes <span>05</span></a>
-            <a href="#approach" onClick={closeMenu}>Approach <span>06</span></a>
-            <a href="#about" onClick={closeMenu}>About <span>07</span></a>
-            <a className="nav-contact" href="#contact" onClick={closeMenu}>Let's connect <ArrowUpRight size={15} /></a>
+          <nav id="primary-navigation" className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Portfolio tabs" role="tablist">
+            {sectionTabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`${tab.id === "contact" ? "nav-contact" : "nav-tab"}${activeTab === tab.id ? " is-active" : ""}`}
+                type="button"
+                role="tab"
+                id={`tab-${tab.id}`}
+                aria-selected={activeTab === tab.id}
+                aria-controls={tab.id}
+                onClick={() => selectTab(tab.id)}
+              >
+                {tab.label}
+                {tab.id === "contact" ? <ArrowUpRight size={15} /> : <span>{tab.number}</span>}
+              </button>
+            ))}
           </nav>
         </div>
       </header>
 
-      <main id="main">
-        <section className="hero page-shell" id="home">
+      <main
+        id="main"
+        onClick={(event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const link = target.closest<HTMLAnchorElement>('a[href^="#"]');
+          if (!link) return;
+          const targetId = link.getAttribute("href")?.slice(1);
+          if (targetId && sectionTabs.some((tab) => tab.id === targetId)) {
+            event.preventDefault();
+            selectTab(targetId as SiteTab);
+          }
+        }}
+      >
+        <section className="hero page-shell" id="home" role="tabpanel" aria-labelledby="tab-home" tabIndex={-1} hidden={activeTab !== "home"} aria-label="Overview">
           <div className="hero-copy">
             <div className="eyebrow"><span className="eyebrow-mark" /> DEVELOPER <span className="eyebrow-divider">/</span> BUILDER <span className="eyebrow-divider">/</span> RESEARCHER</div>
             <h1>I build websites and tools for <span className="headline-highlight">specific problems.</span></h1>
@@ -632,10 +672,10 @@ function App() {
             <div className="hero-art-bottom"><span>CURIOUS BY NATURE.</span><span>BUILT WITH INTENT <ArrowUpRight size={13} /></span></div>
           </div>
 
-          <a className="scroll-cue" href="#work"><span>SCROLL TO EXPLORE</span><ArrowDown size={14} /></a>
+          <a className="scroll-cue" href="#work"><span>OPEN SELECTED WORK</span><ArrowDownRight size={14} /></a>
         </section>
 
-        <section className="work-section section-pad" id="work">
+        <section className="work-section section-pad" id="work" role="tabpanel" aria-labelledby="tab-work" tabIndex={-1} hidden={activeTab !== "work"} aria-label="Selected work">
           <div className="page-shell">
             <div className="section-heading">
               <div>
@@ -695,7 +735,7 @@ function App() {
 
 
 
-        <section className="services-section section-pad" id="services">
+        <section className="services-section section-pad" id="services" role="tabpanel" aria-labelledby="tab-services" tabIndex={-1} hidden={activeTab !== "services"} aria-label="Services">
           <div className="page-shell">
             <div className="section-heading services-heading">
               <div>
@@ -800,7 +840,7 @@ function App() {
           </div>
         </section>
 
-        <section className="design-lab-section section-pad" id="design-lab">
+        <section className="design-lab-section section-pad" id="design-lab" role="tabpanel" aria-labelledby="tab-design-lab" tabIndex={-1} hidden={activeTab !== "design-lab"} aria-label="Web design">
           <div className="page-shell">
             <div className="section-heading design-lab-heading">
               <div>
@@ -851,7 +891,7 @@ function App() {
           </div>
         </section>
 
-        <section className="build-notes-section section-pad" id="build-notes">
+        <section className="build-notes-section section-pad" id="build-notes" role="tabpanel" aria-labelledby="tab-build-notes" tabIndex={-1} hidden={activeTab !== "build-notes"} aria-label="Build notes">
           <div className="page-shell">
             <div className="section-heading build-notes-heading">
               <div>
@@ -950,7 +990,7 @@ function App() {
         </section>
 
 
-        <section className="graphic-gallery-section section-pad" id="graphic-gallery" aria-label="Graphic design portfolio">
+        <section className="graphic-gallery-section section-pad" id="graphic-gallery" aria-label="Graphic design portfolio" role="tabpanel" aria-labelledby="tab-graphic-gallery" tabIndex={-1} hidden={activeTab !== "graphic-gallery"} aria-label="Graphic design">
           <div className="page-shell">
             <div className="section-heading graphic-gallery-heading">
               <div>
@@ -998,7 +1038,7 @@ function App() {
           </div>
         </section>
 
-        <section className="approach-section section-pad" id="approach">
+        <section className="approach-section section-pad" id="approach" role="tabpanel" aria-labelledby="tab-approach" tabIndex={-1} hidden={activeTab !== "approach"} aria-label="Approach">
           <div className="page-shell approach-layout">
             <div className="approach-heading">
               <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE PROCESS</div>
@@ -1035,7 +1075,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about-section section-pad" id="about">
+        <section className="about-section section-pad" id="about" role="tabpanel" aria-labelledby="tab-about" tabIndex={-1} hidden={activeTab !== "about"} aria-label="About">
           <div className="page-shell about-layout">
             <div className="about-stamp"><div className="stamp-ring"><span>MADE WITH</span><b>CURIOSITY</b><span>AND INTENT</span></div><div className="stamp-center">K<span>.</span></div></div>
             <div className="about-copy">
@@ -1052,7 +1092,7 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-section" id="contact">
+        <section className="contact-section" id="contact" role="tabpanel" aria-labelledby="tab-contact" tabIndex={-1} hidden={activeTab !== "contact"} aria-label="Let’s connect">
           <div className="page-shell contact-inner">
             <div className="contact-left">
               <div className="eyebrow"><span className="eyebrow-mark" /> LET'S WORK TOGETHER</div>
@@ -1074,9 +1114,9 @@ function App() {
 
       <footer className="site-footer">
         <div className="page-shell footer-inner">
-          <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span><span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span></a>
+          <a className="wordmark footer-wordmark" href="#home" onClick={(event) => { event.preventDefault(); selectTab("home"); }}><span className="wordmark-icon" aria-hidden="true"><span className="wordmark-k">K</span><i className="wordmark-accent" /></span><span className="wordmark-name">kael builds<span className="wordmark-period">/</span></span></a>
           <span className="footer-note">Built with curiosity, care, and React.</span>
-          <div className="footer-links"><a href={buildGmailComposeUrl("Portfolio inquiry", "Portfolio inquiry")} target="_blank" rel="noreferrer">Email me <ArrowUpRight size={14} /></a><a href={facebookMessageUrl} target="_blank" rel="noreferrer">Message me on Facebook <ExternalLink size={14} /></a><a href="#home">Back to top ↑</a></div>
+          <div className="footer-links"><a href={buildGmailComposeUrl("Portfolio inquiry", "Portfolio inquiry")} target="_blank" rel="noreferrer">Email me <ArrowUpRight size={14} /></a><a href={facebookMessageUrl} target="_blank" rel="noreferrer">Message me on Facebook <ExternalLink size={14} /></a><a href="#home" onClick={(event) => { event.preventDefault(); selectTab("home"); }}>Back to overview ↑</a></div>
           <span className="footer-year">© {new Date().getFullYear()} KAEL BUILDS</span>
         </div>
       </footer>
