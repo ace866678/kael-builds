@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Analytics } from "@vercel/analytics/react";
 import { buildNotesArticle } from "./content/buildNotes";
+import { buildNotesArticle002 } from "./content/buildNotes002";
 
 type Category = "Web apps" | "Research" | "Systems";
 type Filter = "All work" | Category;
@@ -850,7 +851,7 @@ function App() {
           <div className="page-shell">
             <div className="section-heading build-notes-heading">
               <div>
-                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE BUILD NOTES / 001</div>
+                <div className="eyebrow section-eyebrow"><span className="eyebrow-mark" /> THE BUILD NOTES / FIELD GUIDES</div>
                 <h2>Build with intent.<br /><span>Learn as you go.</span></h2>
               </div>
               <p className="section-intro">Practical notes on turning ideas into useful software, making deliberate trade-offs, and improving a project one tested step at a time.</p>
@@ -894,7 +895,53 @@ function App() {
                 <div className="build-notes-footer"><span>BUILD NOTES / 001</span><a href="#work">Explore the projects <ArrowUpRight size={15} /></a></div>
               </div>
             </article>
-            <p className="build-notes-disclaimer">A practical guide, not a report of a specific experiment. Future notes will document project decisions and test results only when they have actually been observed.</p>
+
+            <article className="build-notes-card build-notes-card-secondary" aria-label="Build Notes 002: Stop Layout Jumps Before They Start">
+              <div className="build-notes-cover" aria-hidden="true">
+                <div className="build-notes-cover-top"><span>KAEL BUILDS / FIELD NOTES</span><span>002</span></div>
+                <div className="build-notes-cover-grid">
+                  <span className="build-notes-cover-index">02</span>
+                  <div className="build-notes-cover-title">RESERVE<br />SPACE<span>.</span></div>
+                  <div className="build-notes-cover-orbit build-notes-cover-orbit-one" />
+                  <div className="build-notes-cover-orbit build-notes-cover-orbit-two" />
+                  <div className="build-notes-cover-stamp">LOAD<br />HOLD<br />STAY</div>
+                </div>
+                <div className="build-notes-cover-bottom"><span>LAYOUT STABILITY / IMAGE DIMENSIONS</span><span>FIELD GUIDE</span></div>
+              </div>
+              <div className="build-notes-article">
+                <div className="build-notes-meta"><span>{buildNotesArticle002.kicker}</span><span>{buildNotesArticle002.readingTime}</span></div>
+                <span className="build-notes-status">{buildNotesArticle002.status}</span>
+                <h3>{buildNotesArticle002.title}</h3>
+                <p className="build-notes-subtitle">{buildNotesArticle002.subtitle}</p>
+                <p className="build-notes-introduction">{buildNotesArticle002.introduction}</p>
+                <div className="build-notes-content">
+                  {buildNotesArticle002.sections.map((section) => (
+                    <section className="build-note-section" key={section.heading}>
+                      <h4>{section.heading}</h4>
+                      {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                      {"bullets" in section && Array.isArray(section.bullets) && section.bullets.length > 0 && (
+                        <ul>
+                          {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                        </ul>
+                      )}
+                    </section>
+                  ))}
+                </div>
+                <div className="build-notes-takeaway">
+                  <span>THE TAKEAWAY</span>
+                  <p>{buildNotesArticle002.closing}</p>
+                </div>
+                <div className="build-notes-footer">
+                  <span>BUILD NOTES / 002</span>
+                  <div>
+                    {buildNotesArticle002.sources.map((source) => (
+                      <a href={source.url} target="_blank" rel="noreferrer" key={source.url}>{source.label} <ExternalLink size={13} /></a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
+            <p className="build-notes-disclaimer">These field guides explain repeatable techniques; project experiments and test results are labeled only when they have actually been observed.</p>
           </div>
         </section>
 
