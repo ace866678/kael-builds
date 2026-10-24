@@ -1903,3 +1903,106 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .graphic-gallery-link { transition: none; }
 }
+
+
+/* Click-through portfolio tabs: show one section at a time, with visible keyboard focus. */
+[hidden] { display: none !important; }
+#primary-navigation[role="tablist"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: clamp(3px, .45vw, 8px);
+  justify-content: flex-end;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#primary-navigation[role="tablist"]::-webkit-scrollbar { display: none; }
+.primary-nav > button.nav-tab {
+  appearance: none;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 38px;
+  padding: 8px 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #525e64;
+  font: 700 10px/1.25 var(--sans);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.primary-nav > button.nav-tab > span {
+  position: relative;
+  top: -3px;
+  color: #8f9b96;
+  font: 8px var(--mono);
+}
+.primary-nav > button.nav-tab:hover {
+  background: rgba(255, 255, 255, .8);
+  color: var(--ink);
+}
+.primary-nav > button.nav-tab.is-active:not(.nav-contact) {
+  border-color: #d5e79b;
+  background: rgba(213, 243, 106, .32);
+  color: var(--ink);
+}
+.primary-nav > button.nav-contact {
+  appearance: none;
+  flex: 0 0 auto;
+  justify-content: center;
+  margin-top: 0;
+  padding: 10px 11px;
+  border-color: #cdd4ce;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.primary-nav > button.nav-contact:hover,
+.primary-nav > button.nav-contact.is-active {
+  border-color: var(--lime);
+  background: var(--lime);
+}
+.primary-nav > button:focus-visible {
+  outline: 3px solid #799b12;
+  outline-offset: 3px;
+}
+[role="tabpanel"] { outline: none; }
+.build-notes-source-note {
+  max-width: 100%;
+  color: #849087;
+  font: 8px/1.8 var(--mono);
+  letter-spacing: .45px;
+}
+@media (max-width: 850px) {
+  #primary-navigation[role="tablist"] {
+    align-items: stretch;
+    overflow: visible;
+    gap: 0;
+  }
+  .primary-nav > button.nav-tab {
+    width: 100%;
+    min-height: 44px;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    font-size: 13px;
+  }
+  .primary-nav > button.nav-contact {
+    width: 100%;
+    min-height: 46px;
+    justify-content: space-between;
+    margin-top: 13px;
+    padding: 14px;
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .primary-nav > button.nav-tab { transition: none; }
+}
